@@ -1,7 +1,8 @@
 <?php
 // Style personnalisé du thème 
 function nathalie_mota_theme_enqueue(){
-    wp_enqueue_style('nathalie-mota-style', get_stylesheet_uri(),'/style.css',array(), '1.0');
+    wp_enqueue_style('nathalie-mota-style', get_stylesheet_uri(), '/style.css', array(), '1.0');
+    filemtime(get_stylesheet_directory() . '/css/theme.css');
 }
 add_action('wp_enqueue_scripts','nathalie-mota-theme_enqueue');
 // Gestion du menu 

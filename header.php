@@ -8,11 +8,11 @@
 <body <?php body_class(); ?>> <!-- Permet d’obtenir des noms de classe CSS en fonction de la page visitée -->
 
     <?php wp_body_open(); ?>
-        <header class="header">
-            <div>
-                <img class="logo" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-2.png" alt="Logo" alt="">
+        <header id="header">
+            <div class="logo">
+                <img class="logo" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-2.png" alt="Logo">
             </div>
-            <div class="main-menu">
+            <nav class="main-menu">
                 <?php
                  // Affichage du menu main déclaré dans function.php
                  wp_nav_menu([
@@ -21,7 +21,7 @@
                     'menu_class'=>'main-menu'
                 ]);
                  ?>
-            </div>
+            </nav>
         </header>
     
 </body>
