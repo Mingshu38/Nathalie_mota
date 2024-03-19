@@ -12,6 +12,12 @@
             <div>
                 <img class="logo" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-2.png" alt="Logo" alt="">
             </div>
+            <nav>
+                <?php
+                 // Affichage du menu main déclaré dans function.php
+                 wp_nav_menu(array('theme_location' => 'main'));
+                 ?>
+            </nav>  
         </header>
     
 </body>
