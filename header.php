@@ -15,7 +15,11 @@
             <nav>
                 <?php
                  // Affichage du menu main déclaré dans function.php
-                 wp_nav_menu(array('theme_location' => 'main_menu'));
+                 wp_nav_menu(array(
+                    'theme_location' => 'main_menu',
+                    'container'=>'ul',
+                    'menu_class'=>'header'
+                ));
                  ?>
             </nav>  
         </header>
