@@ -1,11 +1,19 @@
 /*
-Theme name : NathalieMota
+Theme name: NathalieMota
 author: JolySonia
 Description: Thème pour le site de la photographe Nathalie Mota
-Version : 1.0
+Version: 1.0
 */
 
 /* Style de l'entête */
+.menu {
+    position: fixed;
+    top: 0px;
+}
+
+.admin-bar .menu {
+	top: 32px; /* on prend en compte le décalage */
+}
 
 body{
     background-color:red;
@@ -22,5 +30,5 @@ body{
     margin-top: 31px;
 }
 .main-menu{
-    
+    margin-left: 350px;
 }
