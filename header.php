@@ -12,7 +12,10 @@
         <header id="header">
             <div class="logo">
                 <a href="http://nathaliemota.local"><img class="logo-img" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-2.png" alt="Logo"></a>
-                              
+                <?php 
+					// Affichage du menu main déclaré dans functions.php
+					wp_nav_menu(array('theme_location' => 'main')); 
+				?>             
             </div>
             
         </header>
