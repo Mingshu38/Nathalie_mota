@@ -8,19 +8,3 @@ version: 1.0
 Tags: photographe
 Text Domain: photography
 */
-body{
-    background-color: aqua;
-}
-#header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 25px;
-}
-.main-menu{
-    display: flex;
-}
-.logo{
-    width: 216px;
-    margin-left: 30px;
-}
