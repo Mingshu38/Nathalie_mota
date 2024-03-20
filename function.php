@@ -14,9 +14,11 @@ function nathalie_mota_theme_enqueue(){
 add_action('wp_enqueue_scripts','nathalie-mota-theme_enqueue');
 // Gestion du menu 
 
-register_nav_menus( array(
-	'main' => 'Menu Principal',
-	'footer' => 'Bas de page',
-) );
+// créer un lien pour la gestion des menus dans l'administration et activation d'un menu pour le header et d'un menu pour le footer.
+function register_my_menu(){
+    register_nav_menu('main', "Menu principal");
+    register_nav_menu('footer', "Menu pied de page");
+ }
+ add_action('after_setup_theme', 'register_my_menu');
 
 ?>

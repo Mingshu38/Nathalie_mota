@@ -12,18 +12,8 @@
         <header id="header">
             <div class="logo">
                 <a href="http://nathaliemota.local"><img class="logo-img" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-2.png" alt="Logo"></a>
-                <?php 
-	                wp_nav_menu( 
-                         array( 
-                            'theme_location' => 'main', 
-                            'container' => 'ul', // afin d'éviter d'avoir une div autour 
-                            'menu_class' => 'site__header__menu', // ma classe personnalisée 
-                        ) 
-                    ); 
-                ?>                
+                              
             </div>
             
         </header>
     
-</body>
-</html>
