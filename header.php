@@ -9,14 +9,20 @@
 <body <?php body_class(); ?>> <!-- Permet d’obtenir des noms de classe CSS en fonction de la page visitée -->
 
     <?php wp_body_open(); ?>
-        <header id="header">
+        <header id="header" class="header">
             <div class="logo">
-                <a href="http://nathaliemota.local"><img class="logo-img" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-2.png" alt="Logo"></a>
-                <?php 
-				// Affichage du menu main déclaré dans functions.php
-					wp_nav_menu(array('theme_location' => 'main')); 
-				?>             
+                <a href="http://nathaliemota.local"><img class="logo-img" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-2.png" alt="Logo"></a>           
             </div>
+            <nav id="nav-menu">
+            <?php 
+				// Affichage du menu main déclaré dans functions.php
+					wp_nav_menu(array(
+                        'theme_location' => 'main',
+                        'container' =>'ul',  // Pour éviter d'avoir une div autour
+                        'menu_class' =>'header-menu'
+                    )); 
+				?>  
+            </nav>
             
         </header>
     
