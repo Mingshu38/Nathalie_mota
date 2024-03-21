@@ -6,6 +6,12 @@ function nathalie_mota_theme_enqueue(){
     wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/style.css');
 }
 add_action('wp_enqueue_scripts','nathalie_mota_theme_enqueue');
+
+// Script personnalisé du thème 
+function nathalie_mota_scripts(){
+    wp_enqueue_script('nathalie-scripts', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), '1.0.0', true);
+}
+add_action('wp_enqueue_scripts','nathalie_mota_scripts');
 // Gestion du menu 
 
 // créer un lien pour la gestion des menus dans l'administration et activation d'un menu pour le header et d'un menu pour le footer.
