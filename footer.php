@@ -9,6 +9,9 @@
 			)); 
 		?>
 		<p class="droits-reserves">Tous droits réservés</p>
+
+		<!-- Insertion de la modale de contact -->
+		<?php get_template_part('template-parts/modale', '');?>
 		</nav>
 </footer>
 </div>
