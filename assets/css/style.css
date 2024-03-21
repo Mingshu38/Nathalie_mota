@@ -69,19 +69,28 @@ h3{
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    ine-height: normal;
+    line-height: normal;
     letter-spacing: 1.8px;
     text-transform: uppercase;
 }
 
+html{
+    height: 100%;
+}
 
 body{
+    position: relative;
+    min-height: 100%;
     margin: 0;
 }
 
 main{
     display: flex;
     justify-content: center;
+}
+.container{
+    display: flex;
+    flex-direction: column;
 }
 /* Style de l'entête */
 
@@ -105,6 +114,24 @@ main{
     margin-left: 70%;
     margin-right: 10%;
     justify-content: space-between;
+}
+
+/* Footer */
+.footer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+}
+.footer-menu{
+    display: flex;
+    justify-content: space-between;
+}
+.menu-footer{
+    display: flex;
 }
 
 

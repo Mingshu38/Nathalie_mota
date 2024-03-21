@@ -9,6 +9,7 @@
 <body <?php body_class(); ?>> <!-- Permet d’obtenir des noms de classe CSS en fonction de la page visitée -->
 
     <?php wp_body_open(); ?>
+    <div class="container">
         <header id="header" class="header">
             <div class="logo">
                 <a href="http://nathaliemota.local"><img class="logo-img" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-2.png" alt="Logo"></a>           
