@@ -4,6 +4,7 @@
     <meta charset="<?php bloginfo('charset'); ?>"> <!-- Permet de définir l'encodage du site -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>> <!-- Permet d’obtenir des noms de classe CSS en fonction de la page visitée -->
@@ -22,8 +23,8 @@
                         'container' =>'ul',  // Pour éviter d'avoir une div autour
                         'menu_class' =>'header-menu'
                     )); 
-				?>  
-                <?php  get_template_directory_uri(). '/templates_part/modale.php';?>
+				?> 
+                
             </nav>
             
         </header>

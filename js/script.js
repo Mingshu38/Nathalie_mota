@@ -1,26 +1,17 @@
+console.log('Ok modale JavaScript')
 /* Script de la modale de contact */
-// Get the modal
-var modal = document.getElementById('myModal');
+var headerModal = document.getElementById('myModal');
+var headerBtn = document.getElementById('button-contact');
+var headerSpan = document.getElementsByClassName('close');
 
-// Get the button that opens the modal
-var btn = document.getElementsByClassName("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
+headerBtn.onclick = function(){
+    headerModal.style.display ="block";
 }
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
+headerSpan.onclick =function(){
+    headerModal.style.display = "none";
 }
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+window.onclick = function(event){
+    if(event.target == headerModal){
+        headerModal.style.display ="none";
     }
 }
