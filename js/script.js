@@ -1,8 +1,9 @@
-console.log('Ok modale JavaScript')
+console.log('Test script')
 /* Script de la modale de contact */
-var headerModal = document.getElementById('myModal');
-var headerBtn = document.getElementById('button-contact');
-var headerSpan = document.getElementsByClassName('close');
+
+const headerModal = document.getElementById('myModal');
+const headerBtn = document.getElementsByClassName('myBtn');
+const headerSpan = document.getElementsByClassName('close');
 
 headerBtn.onclick = function(){
     headerModal.style.display ="block";
@@ -15,3 +16,4 @@ window.onclick = function(event){
         headerModal.style.display ="none";
     }
 }
+

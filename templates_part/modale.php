@@ -1,7 +1,7 @@
 <!-- Bouton CONTACT -->
 <button id="button-contact">CONTACT</button>
 <!-- Modale -->
-<div id="myModal" class="modal">
+<section id="myModal" role="dialog" style="display:none;">
     <div class="modal-contact">
         <div class="modal-header">
             <span id="close" class="close">x</span>
@@ -11,4 +11,4 @@
             <?php echo do_shortcode('[contact-form-7 id="2824b31" title="Modale Contact"]'); ?>
         </div>
     </div>
-</div>
+</section>
