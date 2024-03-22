@@ -143,6 +143,7 @@ main{
 }
 
 /* Modale contact */
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -180,6 +181,9 @@ main{
     text-decoration: none;
     cursor: pointer;
 }
+
+
+
 
 
 
