@@ -1,3 +1,5 @@
+<!-- Bouton CONTACT -->
+<button id="button-contact">CONTACT</button>
 <!-- Modale -->
 <div id="myModal" class="modal">
     <div class="modal-contact">

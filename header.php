@@ -15,7 +15,7 @@
                 <a href="http://nathaliemota.local"><img class="logo-img" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-2.png" alt="Logo"></a>           
             </div>
             <nav id="nav-menu">
-            <?php 
+                <?php 
 				// Affichage du menu main déclaré dans functions.php
 					wp_nav_menu(array(
                         'theme_location' => 'main',
@@ -23,6 +23,7 @@
                         'menu_class' =>'header-menu'
                     )); 
 				?>  
+                <?php  get_template_directory_uri(). '/templates_part/modale.php';?>
             </nav>
             
         </header>

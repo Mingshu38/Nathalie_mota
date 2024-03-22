@@ -157,6 +157,12 @@ main{
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
+/* style bouton CONTACT*/
+.button-contact{
+    background-color: transparent;
+    border: none;
+    color: #000;
+}
 
 /* Modal Content/Box */
 .modal-content {
