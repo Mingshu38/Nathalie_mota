@@ -24,7 +24,6 @@
                         'menu_class' =>'header-menu'
                     )); 
 				?> 
-                
             </nav>
             
         </header>

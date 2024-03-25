@@ -1,19 +1,17 @@
 console.log('Test script')
 /* Script de la modale de contact */
 
-const headerModal = document.getElementById('myModal');
-const headerBtn = document.getElementsByClassName('myBtn');
-const headerSpan = document.getElementsByClassName('close');
+const modalBtn = document.querySelector('.modal-btn');
+const modal = document.querySelector('.modal');
+const modalOverlay = document.querySelector('.modal-overlay');
 
-headerBtn.onclick = function(){
-    headerModal.style.display ="block";
-}
-headerSpan.onclick =function(){
-    headerModal.style.display = "none";
-}
-window.onclick = function(event){
-    if(event.target == headerModal){
-        headerModal.style.display ="none";
-    }
-}
+modalBtn.addEventListener('click',() => {
+    modal.style.display = "block";
+});
+
+modalOverlay.addEventListener('click',() => {
+    modal.style.display ="none";
+});
+
+
 
