@@ -22,9 +22,10 @@
                         'theme_location' => 'main',
                         'container' =>'ul',  // Pour éviter d'avoir une div autour
                         'menu_class' =>'header-menu'
-                    )); 
+                    ));
 				?> 
+                <button class="modal-btn">contact</button>
             </nav>
-            
+         
         </header>
-    
+    </div>
