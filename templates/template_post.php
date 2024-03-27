@@ -17,7 +17,7 @@
     </div>
     <?php
     endwhile;
-    endif;
+    endif; // Fin de la boucle 
     ?>
  </main>
  <?php

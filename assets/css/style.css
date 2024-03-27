@@ -8,35 +8,35 @@ Version: 1.0
 /* Polices FONTS */
 @font-face {
     font-family: 'Space Mono', monospace;
-    src: url('/app/public/wp-content/themes/motaphoto/assets/fonts/SpaceMono-Regular.woff2') format('woff2');
+    src: url('/app/public/wp-content/themes/motaphoto/assets/fonts/SpaceMono-Regular.ttf') format('ttf');
     font-style: normal;
     font-weight: 400;
 }
 
 @font-face {
     font-family: 'Space Mono', monospace;
-    src: url('/app/public/wp-content/themes/motaphoto/assets/fonts/SpaceMono-Italic.woff2') format('woff2');
+    src: url('/app/public/wp-content/themes/motaphoto/assets/fonts/SpaceMono-Italic.ttf') format('ttf');
     font-style: italic;
     font-weight: 400;
 }
 
 @font-face {
     font-family: 'Space Mono', monospace;
-    src: url('/app/public/wp-content/themes/motaphoto/assets/fonts/SpaceMono-BoldItalic.woff2') format('woff2');
+    src: url('/app/public/wp-content/themes/motaphoto/assets/fonts/SpaceMono-BoldItalic.ttf') format('ttf');
     font-style: italic;
     font-weight: 700;
 }
 
 @font-face {
     font-family: 'Poppins', sans-serif;
-    src: url('/app/public/wp-content/themes/motaphoto/assets/fonts/Poppins-Light.woff2') format('woff2');
+    src: url('/app/public/wp-content/themes/motaphoto/assets/fonts/Poppins-Light.ttf') format('ttf');
     font-style: normal;
     font-weight: 300;
 }
 
 @font-face {
     font-family: 'Poppins', sans-serif;
-    src: url('/app/public/wp-content/themes/motaphoto/assets/fonts/Poppins-Medium.woff2') format('woff2');
+    src: url('/app/public/wp-content/themes/motaphoto/assets/fonts/Poppins-Medium.ttf') format('ttf');
     font-style: normal;
     font-weight: 500;
 }
