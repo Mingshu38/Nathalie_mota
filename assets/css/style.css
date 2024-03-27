@@ -75,7 +75,7 @@ h3{
 }
 
 html{
-    height: 100%;
+    height: 100vw;
 }
 
 body{
@@ -94,7 +94,7 @@ main{
     justify-content: center;
 }
 .container{
-    width: 100%;
+    width: 100vw;
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -103,6 +103,9 @@ main{
     flex-direction: column;
 }
 /* Style de l'entête */
+header{
+    position: fixed;
+}
 #header{
     display: flex;
     width: 100vw;
@@ -114,7 +117,8 @@ main{
 .logo-img{
     width: 216px;
     height: auto;
-    margin: 40px;
+    margin-left: 146px;
+    margin-top: 31px;
 }
 .header-menu{
     display: flex;
@@ -126,7 +130,7 @@ main{
     margin-top: 25px;
     margin-left: 43%;
 }
-.menu-component{
+.menu-component a{
     color: #000;
     font-family: "Space-Mono";
     font-size: 16px;
@@ -159,8 +163,9 @@ main{
     display: flex;
     margin-left: 30%;
 }
-.menu-footer li{
+.menu-footer li a{
     margin-right: 86px;
+    text-decoration: none;
 }
 
 /* Modale contact */
@@ -182,7 +187,7 @@ main{
 
 .modal-container{
     position: absolute;
-    top: 50%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 597px;
@@ -201,7 +206,6 @@ main{
 .modal-btn{
     background-color: #FFF;
     border: none;
-    margin-right: 146px;
     color: #000;
     font-family: "Space-Mono";
     font-size: 16px;
