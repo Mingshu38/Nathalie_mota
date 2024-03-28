@@ -1,3 +1,4 @@
+</main>
 <footer class="footer">
         <nav class="menu-footer">
 		<?php 
@@ -13,8 +14,5 @@
 
 		<!-- Insertion du template de la modale de contact -->
 		<?php get_template_part('templates_part/modale');?>
-
 </footer>
 <?php wp_footer() ?>
-</body>
-</html>

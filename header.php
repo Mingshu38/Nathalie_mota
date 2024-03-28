@@ -9,7 +9,6 @@
 </head>
 <body <?php body_class(); ?>> <!-- Permet d’obtenir des noms de classe CSS en fonction de la page visitée -->
 
-    <?php wp_body_open(); ?>
     <div class="container">
         <header id="header" class="header">
             <div class="logo">
@@ -28,4 +27,6 @@
             </nav>
          
         </header>
-    </div>
+
+        <?php wp_body_open(); ?>
+    <main>

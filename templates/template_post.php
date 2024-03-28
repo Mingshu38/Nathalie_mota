@@ -3,7 +3,7 @@
  * Template Name: Template Post
  */
 
- get_hheader();
+ get_header();
  ?>
 
  <main class="template-post">
