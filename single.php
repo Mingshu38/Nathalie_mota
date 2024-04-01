@@ -15,26 +15,56 @@ get_header() ?>
 	$format = get_the_terms ($post , "format");
 	$formatPhoto = $format [0]-> name;
 	$datePhoto = get_the_date("Y"); // Récupère l'année du poste
+	$url = get_permalink();
+// Variables flèches précédente et suivante 
+	$nextPost = get_next_post();
+	$previousPost = get_previous_post();	
 
 ?>
-
-<div class="single">
-	<div class="detail">
-		<h2><?php echo the_title() ?></h2>
-		<p class="detail-photo">Référence : <span><?php echo $refPhoto ?></span></p>
-		<p class="detail-photo">Catégorie : <span><?php echo $categoryPhoto ?></span></p>
-		<p class="detail-photo">Format : <span><?php echo $formatPhoto ?></span></p>
-		<p class="detail-photo">Type : <span><?php echo $typePhoto ?></span></p>
-		<p class="detail-photo">Année : <span><?php echo $datePhoto ?></span></p>
-	</div>
-	<div class="single-photo">
-		<img class="picture" src="<?php echo get_the_post_thumbnail_url(); ?>"alt="photo" >
+<div class="single-page">
+	<div class="single">
+		<div class="detail">
+			<h2><?php echo the_title() ?></h2>
+			<p class="detail-photo">Référence : <span><?php echo $refPhoto ?></span></p>
+			<p class="detail-photo">Catégorie : <span><?php echo $categoryPhoto ?></span></p>
+			<p class="detail-photo">Format : <span><?php echo $formatPhoto ?></span></p>
+			<p class="detail-photo">Type : <span><?php echo $typePhoto ?></span></p>
+			<p class="detail-photo">Année : <span><?php echo $datePhoto ?></span></p>
+		</div>
+		<div class="single-photo">
+			<img class="picture" src="<?php echo get_the_post_thumbnail_url(); ?>"alt="photo" >
+		</div>
+	
 	</div>
 	<div class="contact-single">
-		<p>Cette photo vous intéresse ?</p>
-		<button class="button-single">Contact</button>
+		<div class="contact-button">
+			<p>Cette photo vous intéresse ?</p>
+			<button class="button-single">Contact</button>
+		</div>
+		<!-- Mini slider sélection des images --> 
+		<div class="mini-slider">
+			<?php 
+			// Pour récupérer les publications de type "photo"
+			$args = array(
+				'post_type' => 'photo', // poste de type photo
+				'posts_per_page' => -1, // Pour voir tous les posts
+				'order' => 'ASC', // En ordre croissant 
+			);
+			?>
+			<div class="arrows">
+				<?php 
+					if(!empty($previousPost)){?>
+					<div class="thumbnail">
+						<?php echo get_the_post_thumbnail($previousPost -> ID, 'thumbnail',['class'=>"miniature"]); ?>
+					</div>
+						<a href="<?php echo get_permalink($previousPost -> ID)?>"><img class="arrow" src="<?php echo get_template_directory_uri() .'/assets/img/arrow-left.png';?>" alt="image flèche précédante"></a>
+					<?php } ?>
+				<?php if(!empty($nextPost)){?>
+						<a href="<?php echo get_permalink($nextPost ->ID)?>"><img class="arrow" src="<?php echo get_template_directory_uri() .'/assets/img/arrow-right.png';?>" alt="image flèche suivante"></a>
+				<?php } ?>
+			</div>			
+		</div>
 	</div>
 </div>
 
-
-<?php get_footer(); ?>
+<?php get_footer()?>
