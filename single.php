@@ -24,12 +24,14 @@ get_header() ?>
 <div class="single-page">
 	<div class="single">
 		<div class="detail">
-			<h2><?php echo the_title() ?></h2>
-			<p class="detail-photo">Référence : <span><?php echo $refPhoto ?></span></p>
-			<p class="detail-photo">Catégorie : <span><?php echo $categoryPhoto ?></span></p>
-			<p class="detail-photo">Format : <span><?php echo $formatPhoto ?></span></p>
-			<p class="detail-photo">Type : <span><?php echo $typePhoto ?></span></p>
-			<p class="detail-photo">Année : <span><?php echo $datePhoto ?></span></p>
+			<div class="details-photos">
+				<h2><?php echo the_title() ?></h2>
+				<p class="detail-photo">Référence : <span><?php echo $refPhoto ?></span></p>
+				<p class="detail-photo">Catégorie : <span><?php echo $categoryPhoto ?></span></p>
+				<p class="detail-photo">Format : <span><?php echo $formatPhoto ?></span></p>
+				<p class="detail-photo">Type : <span><?php echo $typePhoto ?></span></p>
+				<p class="detail-photo">Année : <span><?php echo $datePhoto ?></span></p>
+			</div>
 		</div>
 		<div class="single-photo">
 			<img class="picture" src="<?php echo get_the_post_thumbnail_url(); ?>"alt="photo" >
@@ -39,7 +41,7 @@ get_header() ?>
 	<div class="contact-single">
 		<div class="contact-button">
 			<p>Cette photo vous intéresse ?</p>
-			<button class="button-single">Contact</button>
+			<button class="button-single btn-contact" data-reference="<?= $refPhoto ?>">Contact</button>
 		</div>
 		<!-- Mini slider sélection des images --> 
 		<div class="mini-slider">
@@ -52,16 +54,21 @@ get_header() ?>
 			);
 			?>
 			<div class="arrows">
-				<?php 
-					if(!empty($previousPost)){?>
-					<div class="thumbnail">
-						<?php echo get_the_post_thumbnail($previousPost -> ID, 'thumbnail',['class'=>"miniature"]); ?>
-					</div>
-						<a href="<?php echo get_permalink($previousPost -> ID)?>"><img class="arrow" src="<?php echo get_template_directory_uri() .'/assets/img/arrow-left.png';?>" alt="image flèche précédante"></a>
-					<?php } ?>
-				<?php if(!empty($nextPost)){?>
-						<a href="<?php echo get_permalink($nextPost ->ID)?>"><img class="arrow" src="<?php echo get_template_directory_uri() .'/assets/img/arrow-right.png';?>" alt="image flèche suivante"></a>
-				<?php } ?>
+
+			<div class="thumbnail"></div>
+
+			<?php if($previousPost): ?>				
+				<a href="<?= get_permalink($previousPost -> ID); ?>" class="previous-thumbnail-link" data-image="<?= get_the_post_thumbnail_url($previousPost->ID, 'thumbnail'); ?>">
+					<img class="arrow" src="<?= get_template_directory_uri() .'/assets/img/arrow-left.png';?>" alt="image flèche précédante">
+				</a>
+			<?php endif; ?>
+			<?php if($nextPost): ?>
+				<a href="<?= get_permalink($nextPost ->ID)?>" class="next-thumbnail-link"  data-image="<?= get_the_post_thumbnail_url($nextPost->ID, 'thumbnail'); ?>">
+					<img class="arrow" src="<?php echo get_template_directory_uri() .'/assets/img/arrow-right.png';?>" alt="image flèche suivante">
+				</a>
+			
+			<?php endif; ?>
+				
 			</div>			
 		</div>
 	</div>
