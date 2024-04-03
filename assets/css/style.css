@@ -401,7 +401,7 @@ nav p{
     float: right;
     width: 49%;
     height: auto;
-
+    margin-right: 146px;
 }
 .arrows{
     display: inline;
