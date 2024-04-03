@@ -18,7 +18,9 @@ get_header() ?>
 	$url = get_permalink();
 // Variables flèches précédente et suivante 
 	$nextPost = get_next_post();
-	$previousPost = get_previous_post();	
+	$previousPost = get_previous_post();
+// Variable pour récupérer l'ID 
+	$id = get_the_ID();	
 
 ?>
 <div class="single-page">
@@ -71,6 +73,47 @@ get_header() ?>
 				
 			</div>			
 		</div>
+	</div>
+	<!-- Section Photos apparentées -->
+	<div class="related-photos">
+		<h3>Vous aimerez aussi</h3>
+		<div class="photo-container">
+			<?php 
+			// Récupération de la catégorie du single post 
+			foreach(get_the_terms(get_the_ID(), 'categorie') as $category){
+				$postCategory = $category ->name; // Nom de la taxonomie du poste actuel 
+			}
+			// Récupère 2 photos de manière aléatoire de même catégorie que la photo actuelle 
+			$relatedPhoto= array(
+				'post_type' => 'photo',
+				'posts_per_page' => 2,
+				'orderby' =>'rand', // par ordre aléatoire 
+				'post__not_in' =>array($id), // pour ne pas afficher la photo actuelle
+				'tax_query' => array(   // Utilise les paramètres de taxonomie
+				array(
+					'taxonomy' => 'categorie', // Nom de la taxonomie
+					'field' => 'slug', // Qu'on récupère par son Slug
+					'terms' => $postCategory,
+				),
+				),
+			);
+			$my_query = new WP_Query($relatedPhoto);
+			if($my_query -> have_posts()) : while ($my_query -> have_posts()) : $my_query -> the_post();
+			?>
+			<div class="container-photo">
+				<?php get_template_part('/templates_part/photo-single'); ?>
+			</div>
+			<?php endwhile;
+			else : 
+				echo "Aucune autre photo dans cette catégorie ";
+			
+			endif;
+
+			wp_reset_postdata(); // Pour s'assurer que le $post global a été restauré 
+			
+			?>
+		</div>
+
 	</div>
 </div>
 
