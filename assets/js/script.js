@@ -12,8 +12,8 @@ const thumbnail = document.querySelector('.thumbnail');
 
 const openModal = (reference) => {
     modal.style.display = "block";
-    const form = modal.querySelector('form')
-    form.reference.value = reference ? reference : '' //Si le paramètre reference est defini, on l'affiche, sinon on met le champs vide    
+    const form = modal.querySelector('form');
+    form.reference.value = reference? reference: '';//Si le paramètre reference est defini, on l'affiche, sinon on met le champs vide    
     
 }
 

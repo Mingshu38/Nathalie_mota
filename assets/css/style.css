@@ -93,6 +93,7 @@ main{
 .container{
     position: relative;
     max-width: 1440px;
+    height: auto;
     display: flex;
     flex-direction: column;
 }
@@ -296,7 +297,7 @@ nav p{
 /* Single page photo */
 .single-page{
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
     height: auto;
     align-items: center;
     margin-top:118px;
@@ -446,6 +447,9 @@ nav p{
     flex-direction: column;
     width: 100vw;
 }
+.container-photo{
+    width: 100%;
+}
 .related-photos h3{
     margin-left: 145px;
     margin-top: 77px;
@@ -460,7 +464,11 @@ nav p{
 }
 .photo{
     position: relative;
-    width: 50%;
+    width: 564px;
+    height: 495px;
+    object-fit: cover;
+    object-position: center;
+
 }
 .icon-fullscreen{
     cursor: pointer;
@@ -470,4 +478,18 @@ nav p{
     background-color: #000;
 }
 
+/* Section Hero-header */
+.hero-image{
+    width: 1440px;
+    height: 962px;
+    object-fit: cover;
+    object-position: center;
+}
+.hero-header h1{
+    position: relative;
+    top:-41vw;
+    left: 13vw;
+    -webkit-text-stroke: 2px white;
+    -webkit-text-fill-color: transparent;
+}
 
