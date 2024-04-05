@@ -571,4 +571,20 @@ nav p{
     text-transform: uppercase;
 }
 
+.lightbox{
+    display: none; /* cachée par défaut */
+    position: fixed; /* fixée et qui prend tout l'écran */
+    z-index: 1000; /* Pour être sûr de passer au dessus du reste */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.7); /* noire avec transparence */
+    background-size: contain; /* l'image occupe tout l'espace disponible */
+    background-repeat: no-repeat; 
+    background-position: center;
+    cursor: pointer; /* Le curseur a la même forme que sur un lien */
+}
+
+
 
