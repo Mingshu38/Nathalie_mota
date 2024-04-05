@@ -28,5 +28,5 @@
             </nav>
          
         </header>
-        <?php get_template_part('templates_part/hero-header') ?>
+        
 

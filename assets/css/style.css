@@ -74,7 +74,9 @@ h3{
     letter-spacing: 1.8px;
     text-transform: uppercase;
 }
-
+html{
+    max-width: 1440px;
+}
 
 body{
     background: #FFF;
@@ -89,6 +91,7 @@ body{
 main{
     display: flex;
     justify-content: center;
+    max-width: 1440px;
 }
 .container{
     position: relative;
@@ -287,6 +290,21 @@ nav p{
     font-size: 14px;
     font-weight: 400;
 }
+.wpcf7-submit{
+    display: flex;
+    width: 263px;
+    height: 50px;
+    padding: 8px 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+.wpcf7-submit:hover{
+    background: #000;
+    box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+    color: #FFF;
+}
 
 .wpcf7-response-output {
     width: 160%;
@@ -301,6 +319,7 @@ nav p{
     height: auto;
     align-items: center;
     margin-top:118px;
+    margin-bottom: 109px;
 }
 .single{
     width: 100%;
@@ -343,7 +362,7 @@ nav p{
 .single-photo{
     display: inline;
     width: 49%;
-    margin-right: 100px;
+    margin-right: 146px;
     height: auto;
 }
 .detail-photo{
@@ -362,10 +381,9 @@ nav p{
     align-items: center;
     flex-direction: row;
     position: relative;
-    width: 100%;
+    width: auto;
     margin-left: 146px;
-    margin-right: 146px;
-    border-bottom: 2px solid #000;
+    margin-right: 136px;
 }
 .contact-button{
     display: inline;
@@ -394,6 +412,13 @@ nav p{
     justify-content: center;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
+}
+.button-single:hover{
+    border-radius: 2px;
+    background: #000;
+    box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+    color: #FFF;
 }
 
 /* Flèches et miniature */
@@ -402,7 +427,7 @@ nav p{
     float: right;
     width: 49%;
     height: auto;
-    margin-right: 146px;
+    margin-right: 0px;
 }
 .arrows{
     display: inline;
@@ -412,7 +437,9 @@ nav p{
     vertical-align: middle;
 }
 .arrow{
+    color: #000;
     width: 25px;
+    padding-left: 15px;
 }
 .arrow:hover{
     transform: scale(1.3);
@@ -442,25 +469,28 @@ nav p{
 }
 
 /* Section Related Photos */
-.related-photo{
+.related-photos{
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    max-width: 1440px;
+    margin-left: 145px;
+    margin-right: 145px;
+    border-top: 2px solid #000;
 }
 .container-photo{
     width: 100%;
+    position: relative;
 }
 .related-photos h3{
-    margin-left: 145px;
     margin-top: 77px;
 }
 .photo-container{
     display: grid;
-    grid-template-columns: 1fr 1fr  ;
+    grid-template-columns: 1fr 1fr;
     width: 100%;
     height: auto;
     margin-top: 52px;
-    margin-left: 144px;
+    gap: 18px;
 }
 .photo{
     position: relative;
@@ -471,11 +501,53 @@ nav p{
 
 }
 .icon-fullscreen{
+    opacity: 1;
+    background-color: transparent;
+    position: absolute;
+    top: 11px;
+    right: 18px;
     cursor: pointer;
+    z-index: 31;
 }
 .icon-eye{
+    opacity: 1;
+    position: absolute;
+    top:50%;
+    right: 263px;
+    background-color: transparent
+}
+.hover-photo{
+    opacity: 0;
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 564px;
+    height: 495px;
+    background-color: rgba(0, 0, 0 , 0.6);
+    transition: opacity 0.2s ease-in-out;
+}
+.container-photo:hover .hover-photo:hover{
+    opacity: 1;
+}
+.hover-photo h3{
+    color: white;
+    position: absolute;
+    top: 80%;
+    bottom: 12px;
+}
+.hover-photo-cat{
+    right: 23px;
+}
+.hover-photo-ref{
+    left: 17px;
+}
+.overlay-single{
+    opacity: 1;
+    position: relative;
+}
+.overlay-single:hover{
+    opacity: 1;
     cursor: pointer;
-    background-color: #000;
 }
 
 /* Section Hero-header */
@@ -489,7 +561,14 @@ nav p{
     position: relative;
     top:-41vw;
     left: 13vw;
-    -webkit-text-stroke: 2px white;
+    -webkit-text-stroke: 3px white;
     -webkit-text-fill-color: transparent;
+    font-family: 'Space Mono', monospace;
+    font-size: 96px;
+    font-weight: 700;
+    line-height: normal;
+    font-style: italic;
+    text-transform: uppercase;
 }
+
 
