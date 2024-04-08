@@ -62,3 +62,14 @@ if(nextThumbLink){
         hideThumbnail()
     })
 }
+/* lightbox */
+
+jQuery(document).ready(function ($){
+    // variable index de l'image affichée dans lightbox
+    let currentImageIndex = 0;
+    // ID lightbox 
+    const lightbox = $('.lightbox');
+    // Élement de l'image à afficher 
+    const lightboxImage = $('.lightbox-image');
+
+});

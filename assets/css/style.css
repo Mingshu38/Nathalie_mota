@@ -551,6 +551,9 @@ nav p{
 }
 
 /* Section Hero-header */
+.hero-header{
+    width: 100%;
+}
 .hero-image{
     width: 1440px;
     height: 962px;
@@ -584,6 +587,19 @@ nav p{
     background-repeat: no-repeat; 
     background-position: center;
     cursor: pointer; /* Le curseur a la même forme que sur un lien */
+}
+/* Page index */
+/* home photos */
+
+.container-home {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 146px;
+}
+.home-photo{
+    position: relative;
+    width: 564px ;
 }
 
 
