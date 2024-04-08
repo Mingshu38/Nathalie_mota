@@ -2,7 +2,35 @@
 <?php get_template_part('templates_part/hero-header') ?>
 <main class="main">
 <!-- Section filtres de recherche --> 
-
+<div class="filters">
+    <!-- Filtre Catégorie --> 
+    <label for="category"></label>
+    <select name="category-filter" id="category-filter">
+        <option value="ALL">CATÉGORIE</option>
+        <?php
+        $photo_categories = get_terms('categorie');
+        foreach ($photo_categories as $category) {
+            echo '<option value="' . $category->slug . '">' . $category->name . '</option>';
+        }
+        ?>
+    </select>
+    <!-- Filtre Formats --> 
+    <label for="format"></label>
+    <select name="format-filter" id="format-filter">
+        <option value="ALL">FORMAT</option>
+        <?php
+        $photo_formats = get_terms('format');
+        foreach ($photo_formats as $format) {
+            echo '<option value="' . $format->slug . '">' . $format->name . '</option>';
+        }
+        ?>
+    </select>
+    <!-- Filtre Trier par date -->
+    <label for="date-sort"></label>
+    <select name="date-sort" id="date-sort">
+        <option value="ALL"> TRIER PAR ></option>
+    </select>
+</div>
 <!-- Section Publications --> 
 <div class="container-home">
     <?php 
@@ -24,7 +52,6 @@
     
     <?php wp_reset_postdata();  // Pour s'assurer que le $post global a été restauré ?> 
     <?php endif ?>
-
 </div>
 
 </main>

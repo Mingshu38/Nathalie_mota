@@ -590,12 +590,17 @@ nav p{
 }
 /* Page index */
 /* home photos */
-
+.main{
+    display: flex;
+    flex-direction: column;
+}
 .container-home {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-left: 146px;
+    margin-right: 146px;
+    gap: 20px;
 }
 .home-photo{
     position: relative;
