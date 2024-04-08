@@ -5,6 +5,7 @@ function nathalie_mota_theme_enqueue(){
     wp_enqueue_style('nathalie-mota', get_stylesheet_uri());
     wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/style.css');
     wp_enqueue_script('script' , get_template_directory_uri() . '/assets/js/script.js', array('jquery'), null, true );
+    wp_localize_script('script', 'data', ['ajax_url' => admin_url( 'admin-ajax.php' )]);
 }
 add_action('wp_enqueue_scripts','nathalie_mota_theme_enqueue');
 
@@ -17,4 +18,44 @@ function register_my_menu(){
  }
  add_action('after_setup_theme', 'register_my_menu');
 
+/** Requêtes AJAX */
+function load_photos(){
+    $category = [];
+    $format = [];
+    $taxQuery = [];
+    if(isset($_GET['category']) && $_GET['category'] !== 'null'){
+        $category = array(
+            'taxonomy' => 'categorie', // Nom de la taxonomie
+            'field' => 'slug', // Qu'on récupère par son Slug
+            'terms' => $_GET['category']
+        );
+        array_push($taxQuery, $category);
+    }
+
+    if(isset($_GET['format']) && $_GET['format'] !== 'null'){
+        $format = array(
+            'taxonomy' => 'format', // Nom de la taxonomie
+            'field' => 'slug', // Qu'on récupère par son Slug
+            'terms' => $_GET['format'],
+        );
+        array_push($taxQuery, $format);
+    }
+    
+    $query = new WP_Query([
+        'post_type' => 'photo',
+        'posts_per_page' => 8,
+        'orderby' =>'rand', // par ordre aléatoire 
+        'tax_query' => $taxQuery,
+    ]);
+    if($query  -> have_posts()){
+        while ($query  -> have_posts()) {
+            $query -> the_post();            
+            echo get_template_part('/templates_part/photo-single');
+        }
+    }
+}
+
+
+add_action( 'wp_ajax_load_photos', 'load_photos' );
+add_action( 'wp_ajax_nopriv_load_photos', 'load_photos' );
 ?>

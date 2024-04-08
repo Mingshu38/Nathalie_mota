@@ -13,7 +13,7 @@ const thumbnail = document.querySelector('.thumbnail');
 const openModal = (reference) => {
     modal.style.display = "block";
     const form = modal.querySelector('form');
-    form.reference.value = reference? reference: '';//Si le paramètre reference est defini, on l'affiche, sinon on met le champs vide    
+    form.reference.value = reference ? reference: '';//Si le paramètre reference est defini, on l'affiche, sinon on met le champs vide    
     
 }
 
@@ -73,3 +73,45 @@ jQuery(document).ready(function ($){
     const lightboxImage = $('.lightbox-image');
 
 });
+
+/* Page d'accueil */ 
+const selectCategory = document.querySelector('#category-filter'); // Sélection de l'ID category-filter 
+const selectFormat = document.querySelector('#format-filter'); // Sélection de l'ID format-filter
+const container = document.querySelector('.container-home'); // Sélection de la classe container-home contenant les filtres et photos 
+let category =null;
+let format=null;
+let sort=null;
+
+const fetchData =(category , format , sort )=>{ // Récupère : catégorie , format et date 
+    // La méthode fetch fait par défaut une requête GET , nous lui indiquons de faire une requête "action"
+    return fetch(`${data.ajax_url}?action=load_photos&category=${category}&format=${format}&sort=${sort}`)
+    // la méthode "fetch" retourne une promesse , si le promesse renvoyée est "resolve" la fonction dans la méthode then est bien renvoyée 
+        .then((response => response.text()))
+        .then ((data) => {
+    // DOMParser permet d'analyser le code source HTML dans le DOM document
+            const parser = new DOMParser();
+            // Retourne le document HTML 
+            return parser.parseFromString(data, "text/html")
+        })
+}
+// Pour changer les datas catégories , format et date 
+const changeData = () => {
+    fetchData(category , format , sort).then(html=>{
+        const photos = html.querySelectorAll('.photo-single') // délection de la classe des photos 
+        container.innerHTML =''
+        photos.forEach(photo =>container.appendChild(photo))
+    })
+}
+
+selectCategory.addEventListener('change', (e) =>{
+    // Récupère la valeur de l'élement
+    category = e.target.value
+    changeData()
+})
+
+selectFormat.addEventListener('change', (e) =>{
+    format = e.target.value;
+    changeData()
+})
+
+
