@@ -77,6 +77,7 @@ jQuery(document).ready(function ($){
 /* Page d'accueil */ 
 const selectCategory = document.querySelector('#category-filter'); // Sélection de l'ID category-filter 
 const selectFormat = document.querySelector('#format-filter'); // Sélection de l'ID format-filter
+const selectSort = document.querySelector('#date-sort'); // Sélection de l'ID date-sort
 const container = document.querySelector('.container-home'); // Sélection de la classe container-home contenant les filtres et photos 
 let category =null;
 let format=null;
@@ -111,6 +112,10 @@ selectCategory.addEventListener('change', (e) =>{
 
 selectFormat.addEventListener('change', (e) =>{
     format = e.target.value;
+    changeData()
+})
+selectSort.addEventListener('change', (e) =>{
+    sort = e.target.value
     changeData()
 })
 

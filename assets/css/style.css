@@ -395,9 +395,14 @@ nav p{
 .contact-button p{
     float: left;
     width: 50%;  
+    font-family: 'Poppins , sans serif';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 }
 .contact-button button{
-    width: 272px;
+    width: 270px;
     height: 50px;
 }
 .button-single{
@@ -427,7 +432,7 @@ nav p{
     float: right;
     width: 49%;
     height: auto;
-    margin-right: 0px;
+    margin-right: 50px;
 }
 .arrows{
     display: inline;

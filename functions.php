@@ -23,12 +23,14 @@ function load_photos(){
     $category = [];
     $format = [];
     $taxQuery = [];
+    // La fonction isset()vérifie la variable catégorie dans l'URL , si la variable existe dans l'URL $_GET prend la valeur de la variable 
     if(isset($_GET['category']) && $_GET['category'] !== 'null'){
         $category = array(
             'taxonomy' => 'categorie', // Nom de la taxonomie
             'field' => 'slug', // Qu'on récupère par son Slug
             'terms' => $_GET['category']
         );
+        // Retourne les éléments 
         array_push($taxQuery, $category);
     }
 
