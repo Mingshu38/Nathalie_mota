@@ -61,7 +61,7 @@ get_header() ?>
 
 			<?php if($previousPost): ?>				
 				<a href="<?= get_permalink($previousPost -> ID); ?>" class="previous-thumbnail-link" data-image="<?= get_the_post_thumbnail_url($previousPost->ID, 'thumbnail'); ?>">
-					<img class="arrow" src="<?= get_template_directory_uri() .'/assets/img/arrow-left.png';?>" alt="image flèche précédante">
+					<img class="arrow" src="<?= get_template_directory_uri() .'/assets/img/arrow-left.png';?>" alt="image flèche précédente">
 				</a>
 			<?php endif; ?>
 			<?php if($nextPost): ?>

@@ -100,6 +100,7 @@ main{
     display: flex;
     flex-direction: column;
 }
+
 /* Style de l'entête */
 header{
     position: fixed;
@@ -209,10 +210,10 @@ nav p{
 
 .modal-container{
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
+    width: 597px;
     height: auto;
     background: white;
     border: 5px solid #000;
@@ -273,9 +274,11 @@ nav p{
 .wpcf7-form p .wpcf7-text,
 .wpcf7-form p .wpcf7-email,
 .wpcf7-form p textarea {
-    width: 263px;
     border-radius: 8px;
     border: 1px solid #000000;
+}
+.wpcf7-form-control{
+    width: 263px;
 }
 
 .wpcf7-form p .wpcf7-text:focus,
@@ -289,6 +292,7 @@ nav p{
     font-family: 'Space Mono', monospace;
     font-size: 14px;
     font-weight: 400;
+    cursor: pointer;
 }
 .wpcf7-submit{
     display: flex;
@@ -298,7 +302,10 @@ nav p{
     justify-content: center;
     align-items: center;
     gap: 10px;
-    flex-shrink: 0;
+    /* Maquette différente du prototype pour le bouton envoyé de la modale contact 
+  /*  border-radius: 2px;
+    background-color: #D8D8D8;
+    box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);*/
 }
 .wpcf7-submit:hover{
     background: #000;
@@ -611,6 +618,7 @@ nav p{
     position: relative;
     width: 564px ;
 }
+
 
 
 
