@@ -122,7 +122,6 @@ selectSort.addEventListener('change', (e) =>{
 /* Bouton charger plus */
 (function ($){
     $(document).ready(function (){
-        let currentPage = 0;
         $(document).on('click', '.home-photo' ,function(){
 
         });
@@ -131,7 +130,7 @@ selectSort.addEventListener('change', (e) =>{
     // Initialise le bouton Load More 
     $('.load-more').on('click', function(event){
         event.preventDefault();
-        let button = $(this);
+        let button = $('.load-more');
         currentPage++;
         const postCat = button.data('taxonomy');
         let ajaxData = {
@@ -144,7 +143,7 @@ selectSort.addEventListener('change', (e) =>{
 
         $.ajax({
             url: script.ajax_url,
-            type: 'POST',
+            type: 'GET',
             dataType:'html',
             data: ajaxData,
             beforeSend: function(){

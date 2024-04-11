@@ -90,8 +90,7 @@ function btn_load_more(){
     $response ='';
     if($ajaxPosts -> have_posts()){
         while($ajaxPosts ->have_posts()): $ajaxPosts ->the_post();
-        ob_start();
-        $response .=ob_get_clean();
+        echo get_template_part('/templates_part/photo-single');
     endwhile;
     }else{
         $response = 'Aucune autre photo disponible ';

@@ -76,6 +76,7 @@ h3{
 }
 html{
     max-width: 1440px;
+    overflow-x: hidden;
 }
 
 body{
@@ -100,6 +101,7 @@ main{
     display: flex;
     flex-direction: column;
 }
+
 
 /* Style de l'entête */
 header{
@@ -144,6 +146,7 @@ header{
     font-weight: 700;
     transition-duration: 0.3s;
 }
+
 
 /* Footer */
 
@@ -565,7 +568,7 @@ nav p{
 /* Section Hero-header */
 .hero-header{
     width: 100%;
-    top: 80px;
+    margin-top: 80px;
     
 }
 .hero-image{
@@ -613,6 +616,7 @@ nav p{
 .container-home {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    justify-content: center;
     margin-left: 146px;
     margin-right: 146px;
     gap: 20px;
@@ -671,3 +675,62 @@ nav p{
 }
 
 
+/** RESPONSIVE **/
+@media screen and (max-width: 767px){
+    h1{
+        font-size: 27.588px;
+    }
+    h2{
+        font-size: 46px;
+    }
+    .container{
+        max-width: 767px;
+    }
+    .menu-footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer-menu{
+        display: flex;
+        flex-direction: column;
+        margin-top: 90px;
+        gap: 10px;
+    }
+    .droits-reserves{
+        margin-top: -5px;
+        margin-left: -7px;
+    }
+    .hero-header img{
+        width: 100vw;
+        height: 253px;
+        overflow: hidden;
+    }
+    .hero-header h1{
+        font-size: 27.588px;
+        margin-top: 80px;
+        margin-left: 40px;
+        /* voir pour mettre ne auto et pas en px titre */
+    }
+    .container-home{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .photo-single img{
+        width: 318px;
+        height: 279px;
+    }
+    .filters{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        
+    }
+
+}

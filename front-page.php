@@ -59,6 +59,8 @@
     <button class="load-more"> Charger plus </button>
 </div>
 
+
+
 </main>
 
 <?php get_footer(); ?> 
