@@ -55,6 +55,9 @@
     <?php wp_reset_postdata();  // Pour s'assurer que le $post global a été restauré ?> 
     <?php endif ?>
 </div>
+<div class="button-load">
+    <button class="load-more"> Charger plus </button>
+</div>
 
 </main>
 

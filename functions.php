@@ -57,7 +57,52 @@ function load_photos(){
     }
 }
 
-
 add_action( 'wp_ajax_load_photos', 'load_photos' );
 add_action( 'wp_ajax_nopriv_load_photos', 'load_photos' );
+
+/* Bouton Load More */
+
+
+function btn_load_more(){
+    $img = $_GET['photo'];
+    $taxonomy = $_GET['taxonomy'];
+    if(isset($_GET['taxonomy'])){
+        $ajaxPosts = new WP_Query([
+            'post_type' => 'photo',
+            'posts_per_page' => 8,
+            'orderby' =>'date',
+            'order'=> 'DESC',
+            'tax_query' =>[
+                'taxonomy'=>'categorie',
+                'field' =>'slug',
+                'terms'=> $taxonomy,
+            ],
+            'page' => $paged,
+        ]);
+    }else{
+        $ajaxPosts = new WP_Query([
+            'post_type' => 'photo',
+            'posts_per_page' =>12,
+            'orderby' =>'rand',
+            'paged' => $paged,
+        ]);
+    }
+    $response ='';
+    if($ajaxPosts -> have_posts()){
+        while($ajaxPosts ->have_posts()): $ajaxPosts ->the_post();
+        ob_start();
+        $response .=ob_get_clean();
+    endwhile;
+    }else{
+        $response = 'Aucune autre photo disponible ';
+    }
+    echo $response;
+    wp_die();
+}
+
+add_action('wp_ajax_btn_load_more' , 'btn_load_more');
+add_action('wp_ajax_nopriv_btn_load_more', 'btn_load_more');
+
+
+
 ?>

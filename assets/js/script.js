@@ -119,4 +119,46 @@ selectSort.addEventListener('change', (e) =>{
     changeData()
 })
 
+/* Bouton charger plus */
+(function ($){
+    $(document).ready(function (){
+        let currentPage = 0;
+        $(document).on('click', '.home-photo' ,function(){
 
+        });
+
+    });
+    // Initialise le bouton Load More 
+    $('.load-more').on('click', function(event){
+        event.preventDefault();
+        let button = $(this);
+        currentPage++;
+        const postCat = button.data('taxonomy');
+        let ajaxData = {
+            action:'btn_load_more',
+            paged: currentPage,
+        };
+        if(typeof postCat !=='unedined'){
+            ajaxData.taxonomy = postCat;
+        }
+
+        $.ajax({
+            url: script.ajax_url,
+            type: 'POST',
+            dataType:'html',
+            data: ajaxData,
+            beforeSend: function(){
+                button.attr('disabled', true);
+            },
+            success: function(res){
+                if(res.trim().lenght){
+                    $('.home-photo').append(res);
+                }else{
+                    button.hide();
+                };
+                
+            }
+        });
+    });
+    
+})(jQuery);

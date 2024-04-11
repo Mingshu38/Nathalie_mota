@@ -565,6 +565,8 @@ nav p{
 /* Section Hero-header */
 .hero-header{
     width: 100%;
+    top: 80px;
+    
 }
 .hero-image{
     width: 1440px;
@@ -605,9 +607,10 @@ nav p{
 .main{
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: auto;
 }
 .container-home {
-    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-left: 146px;
@@ -619,6 +622,52 @@ nav p{
     width: 564px ;
 }
 
+/* Filtres */ 
+.filters{
+    margin-top: -130px;
+    margin-bottom: 39px;
+    margin-left: 144px;
+}
+#date-sort{
+    float: right;
+    margin-right: 146px;
+}
+#category-filter,
+#format-filter,
+#date-sort{
+    width: 260px;
+    height: 43px;
+}
 
+/* Bouton charger plus */
+.button-load{
+    display: flex;
+    justify-content: center;
+    margin-top: 58px;
+    margin-bottom: 58px;
+}
+.load-more{
+    width: 272px;
+    height: 50px;
+    padding: 8px 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 2px;
+    background-color: #D8D8D8;
+    box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+    cursor: pointer;
+    font-family: 'Space Mono', monospace ;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.load-more:hover{
+    border-radius: 2px;
+    background-color: #000;
+    box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+    color: #FFF;
+}
 
 
