@@ -120,7 +120,7 @@ selectSort.addEventListener('change', (e) =>{
 })
 
 /* Bouton charger plus */
-(function ($){
+/*(function ($){
     $(document).ready(function (){
         $(document).on('click', '.home-photo' ,function(){
 
@@ -160,4 +160,22 @@ selectSort.addEventListener('change', (e) =>{
         });
     });
     
-})(jQuery);
+})(jQuery);*/
+let currentPage =1 ;
+
+$('.button-load').on('click', function(){
+    currentPage++
+
+    $.ajax({
+        type:'POST',
+        url:'/nathaliemota/wp-admin/admin-ajax.php',
+        dataType:'html',
+        data:{
+            action:'more',
+            paged: currentPage,
+        },
+        succes:function(resultat){
+            $('.container-home').append(resultat);
+        }
+    });
+});

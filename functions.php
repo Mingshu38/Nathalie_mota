@@ -64,43 +64,29 @@ add_action( 'wp_ajax_nopriv_load_photos', 'load_photos' );
 
 
 function btn_load_more(){
-    $img = $_GET['photo'];
-    $taxonomy = $_GET['taxonomy'];
-    if(isset($_GET['taxonomy'])){
-        $ajaxPosts = new WP_Query([
-            'post_type' => 'photo',
-            'posts_per_page' => 8,
-            'orderby' =>'date',
-            'order'=> 'DESC',
-            'tax_query' =>[
-                'taxonomy'=>'categorie',
-                'field' =>'slug',
-                'terms'=> $taxonomy,
-            ],
-            'page' => $paged,
-        ]);
-    }else{
-        $ajaxPosts = new WP_Query([
-            'post_type' => 'photo',
-            'posts_per_page' =>12,
-            'orderby' =>'rand',
-            'paged' => $paged,
-        ]);
-    }
-    $response ='';
-    if($ajaxPosts -> have_posts()){
-        while($ajaxPosts ->have_posts()): $ajaxPosts ->the_post();
-        echo get_template_part('/templates_part/photo-single');
-    endwhile;
-    }else{
-        $response = 'Aucune autre photo disponible ';
-    }
-    echo $response;
-    wp_die();
-}
+    $more = new WP_Query([
+        'post_type' =>'photo',
+        'post_per_page' =>12,
+        'orderby' =>'rand',
+        'order' =>'ASC',
+        'paged' =>$_POST['paged'],
+    ]);
+    $return ='';
 
+    if($more ->have_posts()): while($more -> have_posts()) : $more ->the_post();
+    $return .=
+    ' <img src="<?php echo get_the_post_thumbnail_url();?>" alt="<?php the_title_attribute();?>" class="photo">';
+endwhile;
+wp_reset_postdata();
+else:
+    $return ='';
+endif;
+echo $return;
+exit;
+};
 add_action('wp_ajax_btn_load_more' , 'btn_load_more');
-add_action('wp_ajax_nopriv_btn_load_more', 'btn_load_more');
+add_action('wp_ajax_nopriv_btn_load_more' , 'btn_load_more');
+
 
 
 
