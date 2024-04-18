@@ -78,14 +78,16 @@ jQuery(document).ready(function ($){
 const selectCategory = document.querySelector('#category-filter'); // Sélection de l'ID category-filter 
 const selectFormat = document.querySelector('#format-filter'); // Sélection de l'ID format-filter
 const selectSort = document.querySelector('#date-sort'); // Sélection de l'ID date-sort
+const loadMoreButton = document.querySelector('.button-load') // Sélection du bouton "Charger Plus"
 const container = document.querySelector('.container-home'); // Sélection de la classe container-home contenant les filtres et photos 
 let category =null;
 let format=null;
 let sort=null;
+let currentPage = 1 ;
 
-const fetchData =(category , format , sort )=>{ // Récupère : catégorie , format et date 
+const fetchData =(category , format , sort, page = 1 )=>{ // Récupère : catégorie , format et date 
     // La méthode fetch fait par défaut une requête GET , nous lui indiquons de faire une requête "action"
-    return fetch(`${data.ajax_url}?action=load_photos&category=${category}&format=${format}&sort=${sort}`)
+    return fetch(`${data.ajax_url}?action=load_photos&category=${category}&format=${format}&sort=${sort}&page=${page}`)
     // la méthode "fetch" retourne une promesse , si le promesse renvoyée est "resolve" la fonction dans la méthode then est bien renvoyée 
         .then((response => response.text()))
         .then ((data) => {
@@ -96,7 +98,7 @@ const fetchData =(category , format , sort )=>{ // Récupère : catégorie , for
         })
 }
 // Pour changer les datas catégories , format et date 
-const changeData = () => {
+const changeData = () => {    
     fetchData(category , format , sort).then(html=>{
         const photos = html.querySelectorAll('.photo-single') // délection de la classe des photos 
         container.innerHTML =''
@@ -106,76 +108,28 @@ const changeData = () => {
 
 selectCategory.addEventListener('change', (e) =>{
     // Récupère la valeur de l'élement
+    currentPage = 1;
     category = e.target.value
     changeData()
 })
 
 selectFormat.addEventListener('change', (e) =>{
+    currentPage = 1;
     format = e.target.value;
     changeData()
 })
 selectSort.addEventListener('change', (e) =>{
+    currentPage = 1;
     sort = e.target.value
     changeData()
 })
 
-/* Bouton charger plus */
-/*(function ($){
-    $(document).ready(function (){
-        $(document).on('click', '.home-photo' ,function(){
-
-        });
-
-    });
-    // Initialise le bouton Load More 
-    $('.load-more').on('click', function(event){
-        event.preventDefault();
-        let button = $('.load-more');
-        currentPage++;
-        const postCat = button.data('taxonomy');
-        let ajaxData = {
-            action:'btn_load_more',
-            paged: currentPage,
-        };
-        if(typeof postCat !=='unedined'){
-            ajaxData.taxonomy = postCat;
-        }
-
-        $.ajax({
-            url: script.ajax_url,
-            type: 'GET',
-            dataType:'html',
-            data: ajaxData,
-            beforeSend: function(){
-                button.attr('disabled', true);
-            },
-            success: function(res){
-                if(res.trim().lenght){
-                    $('.home-photo').append(res);
-                }else{
-                    button.hide();
-                };
-                
-            }
-        });
-    });
-    
-})(jQuery);*/
-let currentPage =1 ;
-
-$('.button-load').on('click', function(){
-    currentPage++
-
-    $.ajax({
-        type:'POST',
-        url:'/nathaliemota/wp-admin/admin-ajax.php',
-        dataType:'html',
-        data:{
-            action:'more',
-            paged: currentPage,
-        },
-        succes:function(resultat){
-            $('.container-home').append(resultat);
-        }
-    });
-});
+loadMoreButton.addEventListener('click', (e) => {
+    currentPage += 1;
+    fetchData(category , format , sort, currentPage)
+        .then((html) => {
+            const photos = html.querySelectorAll('.photo-single') // délection de la classe des photos 
+                    photos.forEach(photo =>container.appendChild(photo))
+                    console.log(data)
+        })
+})

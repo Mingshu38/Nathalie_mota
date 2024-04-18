@@ -28,9 +28,9 @@
     <!-- Filtre Trier par date -->
     <label for="date-sort"></label>
     <select name="date-sort" id="date-sort">
-        <option value="ALL"> TRIER PAR </option>
-        <option value="desc"<?php if($order === "desc"): ?>selected<?php endif;?> >À partir des plus récentes </option>
-        <option value="asc"<?php if($order === "asc"): ?>selected<?php endif;?> >À partir des plus anciennes </option>
+        <option value="DESC"> TRIER PAR </option>
+        <option value="DESC"<?php if($order === "desc"): ?>selected<?php endif;?> >À partir des plus récentes </option>
+        <option value="ASC"<?php if($order === "asc"): ?>selected<?php endif;?> >À partir des plus anciennes </option>
     </select>
 </div>
 <!-- Section Publications --> 

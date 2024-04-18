@@ -22,9 +22,11 @@ function register_my_menu(){
 function load_photos(){
     $category = [];
     $format = [];
-    $taxQuery = [];
+    $taxQuery = [];   
+    $page = (isset($_GET['page']) && $_GET['page'] !== 'null') ? $_GET['page'] : 1; 
+    $sort = (isset($_GET['sort']) && $_GET['sort'] !== 'null') ? $_GET['sort'] : 'ASC'; 
     // La fonction isset()vérifie la variable catégorie dans l'URL , si la variable existe dans l'URL $_GET prend la valeur de la variable 
-    if(isset($_GET['category']) && $_GET['category'] !== 'null'){
+    if(isset($_GET['category']) && $_GET['category'] !== 'null' && $_GET['category'] !== 'ALL'){
         $category = array(
             'taxonomy' => 'categorie', // Nom de la taxonomie
             'field' => 'slug', // Qu'on récupère par son Slug
@@ -34,7 +36,7 @@ function load_photos(){
         array_push($taxQuery, $category);
     }
 
-    if(isset($_GET['format']) && $_GET['format'] !== 'null'){
+    if(isset($_GET['format']) && $_GET['format'] !== 'null' && $_GET['format'] !== 'ALL'){
         $format = array(
             'taxonomy' => 'format', // Nom de la taxonomie
             'field' => 'slug', // Qu'on récupère par son Slug
@@ -46,7 +48,8 @@ function load_photos(){
     $query = new WP_Query([
         'post_type' => 'photo',
         'posts_per_page' => 8,
-        'orderby' =>'rand', // par ordre aléatoire 
+        'order' => $sort, // par ordre aléatoire 
+        'paged' => $page,
         'tax_query' => $taxQuery,
     ]);
     if($query  -> have_posts()){
@@ -64,25 +67,20 @@ add_action( 'wp_ajax_nopriv_load_photos', 'load_photos' );
 
 
 function btn_load_more(){
-    $more = new WP_Query([
+    $page = (isset($_GET['page']) && $_GET['page'] !== 'null') ? $_GET['page'] : 1;
+    $query = new WP_Query([
         'post_type' =>'photo',
-        'post_per_page' =>12,
+        'post_per_page' => 8,
         'orderby' =>'rand',
         'order' =>'ASC',
-        'paged' =>$_POST['paged'],
+        'paged' => $page,
     ]);
-    $return ='';
-
-    if($more ->have_posts()): while($more -> have_posts()) : $more ->the_post();
-    $return .=
-    ' <img src="<?php echo get_the_post_thumbnail_url();?>" alt="<?php the_title_attribute();?>" class="photo">';
-endwhile;
-wp_reset_postdata();
-else:
-    $return ='';
-endif;
-echo $return;
-exit;
+    if($query  -> have_posts()){
+        while ($query  -> have_posts()) {
+            $query -> the_post();            
+            echo get_template_part('/templates_part/photo-single');
+        }
+    }
 };
 add_action('wp_ajax_btn_load_more' , 'btn_load_more');
 add_action('wp_ajax_nopriv_btn_load_more' , 'btn_load_more');
