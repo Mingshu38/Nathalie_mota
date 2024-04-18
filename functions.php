@@ -65,7 +65,6 @@ add_action( 'wp_ajax_nopriv_load_photos', 'load_photos' );
 
 /* Bouton Load More */
 
-
 function btn_load_more(){
     $page = (isset($_GET['page']) && $_GET['page'] !== 'null') ? $_GET['page'] : 1;
     $query = new WP_Query([

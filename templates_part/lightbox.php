@@ -1,19 +1,23 @@
+<?php
+    $reference = get_field('reference');
+    $category = get_the_terms(get_the_ID(), 'categorie');
+    $id = get_the_ID();
+    $url = get_permalink();
+?>
+
 <div class="lightbox">
-    <div class="lightbox-content">
-        <img src="" alt="" class="lightbox-image">
-        <div class="lightbox-elements">
-            <p class="lightbox-category"><?php echo get_the_term_list(get_the_ID(), 'categorie'); ?></p>
-            <p class="lightbox-reference"><?php echo get_field('reference', get_the_ID()); ?></p>
+    <div class="fullscreen-photo">
+        <div class="arrow-left">
+            <img src="<?php echo get_the_template_directory_uri(); ?> /assets/img/arrow-left.png" alt="flèche précédente ">
+        </div>
+        <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>" alt="" class="lightbox-photo">
+        <div class="arrow-right">
+            <img src="<?php echo get_the_template_directory_uri(); ?> /assets/img/arrow-right.png" alt="">
+        </div>
+        <div>
+            <h5 class="lightbox-reference"><?php echo get_field('reference') ?></h5>
+            <h5 class="lightbox-category"><?php echo get_the_terms(get_the_ID() , 'categorie')[0]->name  ?></h5>
         </div>
     </div>
-    <div class="navigations">
-        <span class="prev-span">
-            <img src="<?php get_the_template_directory_uri() .'/assets/img/left-arrow.png' ?>" alt="flèche image précédente" class="lightbox-previous">
-            Précédente
-        </span>
-        <span class="next-span">
-            <img src="<?php get_the_template_directory_uri() .'/assets/img/right-arrow.png' ?>" alt="Flèche image suivante" class="lightbox-next">
-            Suivante
-        </span>
-    </div>
+    <img src="<?php echo get_template_directory_uri() ?> /assets/img/close.png" alt="" class="close-lightbox">
 </div>

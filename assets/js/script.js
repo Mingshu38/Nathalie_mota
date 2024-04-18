@@ -62,17 +62,6 @@ if(nextThumbLink){
         hideThumbnail()
     })
 }
-/* lightbox */
-
-jQuery(document).ready(function ($){
-    // variable index de l'image affichée dans lightbox
-    let currentImageIndex = 0;
-    // ID lightbox 
-    const lightbox = $('.lightbox');
-    // Élement de l'image à afficher 
-    const lightboxImage = $('.lightbox-image');
-
-});
 
 /* Page d'accueil */ 
 const selectCategory = document.querySelector('#category-filter'); // Sélection de l'ID category-filter 
@@ -133,3 +122,32 @@ loadMoreButton.addEventListener('click', (e) => {
                     console.log(data)
         })
 })
+
+/** Lightbox Script  */
+
+const lightbox = document.querySelector('.lightbox');
+const lightboxPhoto = document.querySelector('.lightbox-photo');
+const lightboxCategory = document.querySelector('.lightbox-category');
+const lightboxReference = document.querySelector('lightbox-reference');
+const lightboxPrevious = document.querySelector('.arrow-left');
+const lightboxNext = document.querySelector('.arrow-right');
+const lightboxClose = document.querySelector('.close-lightbox');
+const lightboxFullScreen = document.querySelector('.icon-fullscreen');
+index = 0;
+let data=null;
+/* Ouverture de la lightbox */
+const openLightbox = ()=>{
+    lightbox.style.display ="block";
+};
+/* Fermeture de la lightbox */
+const closeLightbox =()=>{
+    lightbox.style.display ="none";
+};
+lightboxFullScreen.addEventListener('click', ()=>{
+    console.log("fullscreen")
+    openLightbox();
+});
+
+lightboxClose.addEventListener('click',()=>{
+    closeModal();
+});
