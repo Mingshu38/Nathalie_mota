@@ -81,9 +81,20 @@ function btn_load_more(){
         }
     }
 };
+
+function load_lightbox(){
+    $ids = $_GET['ids'] ? explode(',', $_GET['ids']) : [];
+    foreach($ids as $id){
+        echo get_template_part('/templates_part/lightbox-single', null, ['id' => $id]);
+    }
+};
+
+
 add_action('wp_ajax_btn_load_more' , 'btn_load_more');
 add_action('wp_ajax_nopriv_btn_load_more' , 'btn_load_more');
 
+add_action('wp_ajax_load_lightbox' , 'load_lightbox');
+add_action('wp_ajax_nopriv_load_lightbox' , 'load_lightbox');
 
 
 

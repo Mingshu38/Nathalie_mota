@@ -1,4 +1,4 @@
-<div class="photo-single">
+<div class="photo-single" data-id=<?= the_ID(); ?>>
     <img src="<?php echo get_the_post_thumbnail_url();?>" alt="<?php the_title_attribute();?>" class="photo">
     <div class="hover-photo">
         <img src="<?php echo get_template_directory_uri() .'/assets/img/icon_fullscreen.png' ?>" alt="icone fullscreen" class="icon-fullscreen">

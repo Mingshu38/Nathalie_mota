@@ -68,7 +68,7 @@ const selectCategory = document.querySelector('#category-filter'); // Sélection
 const selectFormat = document.querySelector('#format-filter'); // Sélection de l'ID format-filter
 const selectSort = document.querySelector('#date-sort'); // Sélection de l'ID date-sort
 const loadMoreButton = document.querySelector('.button-load') // Sélection du bouton "Charger Plus"
-const container = document.querySelector('.container-home'); // Sélection de la classe container-home contenant les filtres et photos 
+const gallery = document.querySelector('.gallery'); // Sélection de la classe container-home contenant les filtres et photos 
 let category =null;
 let format=null;
 let sort=null;
@@ -86,12 +86,26 @@ const fetchData =(category , format , sort, page = 1 )=>{ // Récupère : catég
             return parser.parseFromString(data, "text/html")
         })
 }
+
+const fetchLightboxContent = (ids) => {    
+    const params = new URLSearchParams({ids})
+    return fetch(`${data.ajax_url}?action=load_lightbox&${params.toString()}`)
+    // la méthode "fetch" retourne une promesse , si le promesse renvoyée est "resolve" la fonction dans la méthode then est bien renvoyée 
+        .then((response => response.text()))
+        .then ((data) => {
+    // DOMParser permet d'analyser le code source HTML dans le DOM document
+            const parser = new DOMParser();
+            // Retourne le document HTML 
+            return parser.parseFromString(data, "text/html")
+        })
+}
 // Pour changer les datas catégories , format et date 
 const changeData = () => {    
     fetchData(category , format , sort).then(html=>{
         const photos = html.querySelectorAll('.photo-single') // délection de la classe des photos 
-        container.innerHTML =''
-        photos.forEach(photo =>container.appendChild(photo))
+        gallery.innerHTML =''
+        photos.forEach(photo =>gallery.appendChild(photo))
+        initLightboxEvent()
     })
 }
 
@@ -118,7 +132,7 @@ loadMoreButton.addEventListener('click', (e) => {
     fetchData(category , format , sort, currentPage)
         .then((html) => {
             const photos = html.querySelectorAll('.photo-single') // délection de la classe des photos 
-                    photos.forEach(photo =>container.appendChild(photo))
+                    photos.forEach(photo =>gallery.appendChild(photo))
                     console.log(data)
         })
 })
@@ -132,22 +146,71 @@ const lightboxReference = document.querySelector('lightbox-reference');
 const lightboxPrevious = document.querySelector('.arrow-left');
 const lightboxNext = document.querySelector('.arrow-right');
 const lightboxClose = document.querySelector('.close-lightbox');
-const lightboxFullScreen = document.querySelector('.icon-fullscreen');
-index = 0;
-let data=null;
+const lightboxContent = document.querySelector('.lightbox-content')
+//const lightboxFullScreen = document.querySelector('.icon-fullscreen');
+let index = 0;
+let nbSlides = 0;
+//let data=null;
 /* Ouverture de la lightbox */
-const openLightbox = ()=>{
+const openLightbox = async (ids) =>{
+    const content = await fetchLightboxContent([ids])  
+    
+    const photos = content.querySelectorAll('.lightbox-single');
+    nbSlides = photos.length
+    photos.forEach(p => lightboxContent.appendChild(p));    
+
     lightbox.style.display ="block";
+    changeSlide(index)
+
 };
+/* Changement des slides */
+const changeSlide = (idx) => {
+    const lightboxSingle = document.querySelector('.lightbox-single')
+    const width = lightboxSingle.getBoundingClientRect().width
+    lightboxContent.style.transform = `translateX(-${idx * width}px)`
+}
 /* Fermeture de la lightbox */
 const closeLightbox =()=>{
     lightbox.style.display ="none";
+    lightboxContent.innerHTML = ''
 };
-lightboxFullScreen.addEventListener('click', ()=>{
-    console.log("fullscreen")
-    openLightbox();
-});
+
+lightboxNext.addEventListener('click', () => {
+    if(index === nbSlides - 1){
+        index = 0;
+    } else {
+        index += 1;
+    }    
+    changeSlide(index) 
+    
+})
+/* Écouteur d'évenement au click */
+lightboxPrevious.addEventListener('click', () => {
+    if(index === 0){
+        index = nbSlides - 1
+    } else {
+        index -= 1;
+    }    
+    changeSlide(index)
+})
+
+
+function initLightboxEvent(){
+    const lightboxFullScreen = document.querySelectorAll('.photo-single');
+    lightboxFullScreen.forEach((e, idx) => {
+        e.addEventListener('click', ()=>{               
+            const photos = Array.from(document.querySelectorAll('.photo-single'))
+            const ids = photos.map(p => p.dataset['id'])
+            openLightbox(ids);
+            // Initialise l'index de la slide cliquée pour se rendre au bon endroit dans la lightbox
+            index = idx            
+        });
+    })
+}
+
 
 lightboxClose.addEventListener('click',()=>{
-    closeModal();
+    closeLightbox()
 });
+
+initLightboxEvent()

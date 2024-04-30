@@ -15,7 +15,7 @@
 		<!-- Insertion du template de la modale de contact -->
 		<?php get_template_part('templates_part/modale');?>
 		<!-- Insertion du template de la lightbox -->
-		<?php get_template_part('/templates_part/lightbox') ?>
+		<?php get_template_part('templates_part/lightbox'); ?>
 </footer>
 <?php wp_footer() ?>
 </body>
