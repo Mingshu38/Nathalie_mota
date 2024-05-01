@@ -5,43 +5,7 @@ Description: Thème pour le site de la photographe Nathalie Mota
 Version: 1.0
 */
 
-/* Polices FONTS */
-@font-face {
-    font-family: 'Space Mono', monospace;
-    src: url('/app/public/wp-content/themes/nathalie_mota/assets/fonts/SpaceMono-Regular.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: 'Space Mono', monospace;
-    src: url('/app/public/wp-content/themes/nathalie_mota/assets/fonts/SpaceMono-Italic.woff2') format('woff2');
-    font-style: italic;
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: 'Space Mono', monospace;
-    src: url('/app/public/wp-content/themes/nathalie_mota/assets/fonts/SpaceMono-BoldItalic.woff2') format('woff2');
-    font-style: italic;
-    font-weight: 700;
-}
-
-@font-face {
-    font-family: 'Poppins', sans-serif;
-    src: url('/app/public/wp-content/themes/nathalie_mota/assets/fonts/Poppins-Light.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 300;
-}
-
-@font-face {
-    font-family: 'Poppins', sans-serif;
-    src: url('/app/public/wp-content/themes/nathalie_mota/assets/fonts/Poppins-Medium.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 500;
-}
-
-/* Style général*/
+/* STYLE GÉNÉRAL */
 
 /* Titre H1 desktop */
 h1{
@@ -75,7 +39,7 @@ h3{
     text-transform: uppercase;
 }
 html{
-    max-width: 1440px;
+    width: 100%;
     overflow-x: hidden;
 }
 
@@ -98,11 +62,11 @@ body{
 }
 
 
-/* Style de l'entête */
+/* STYLE DE L'ENTÊTE  */
 .header .container{
     position: fixed;
     display: flex;
-    width: 100vw;
+    width: 100%;
     height: 80px;
     background-color: #fff;
     z-index: 10;
@@ -111,12 +75,12 @@ body{
 }
 
 .logo-img{
-    width: 216px;
+    width: 138px;
     height: auto;
 }
 .header-menu{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     list-style-type: none;
 }
 #nav-menu{
@@ -139,11 +103,10 @@ body{
 }
 
 
-/* Footer */
+/* FOOTER */
 
 .menu-footer{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -155,9 +118,8 @@ body{
     gap: 10px;
 }
 
-/* Modale contact */
+/* MODAL CONTACT */
 
-/* The Modal (background) */
 .modal{
     display: none;
 }
@@ -283,7 +245,7 @@ body{
     color: red;
 }
 
-/* Single page photo */
+/* PAGE SINGLE PHOTOS */
 .single-page{
     width: 100%;
     height: auto;
@@ -517,7 +479,7 @@ body{
     cursor: pointer;
 }
 
-/* Section Hero-header */
+/* HERO HEADER */
 .hero-header{
     width: 100%;
     padding-top: 80px;
@@ -528,7 +490,7 @@ body{
 }
 .hero-image{
     width: 100%;
-    height: 962px;
+    height: 253px;
     object-fit: cover;
     object-position: center;    
 }
@@ -549,27 +511,15 @@ body{
     text-align: center;
 }
 
-.lightbox{
-    display: none; /* cachée par défaut */
-    position: fixed; /* fixée et qui prend tout l'écran */
-    z-index: 1000; /* Pour être sûr de passer au dessus du reste */
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(0,0,0,.7); /* noire avec transparence */
-    background-size: contain; /* l'image occupe tout l'espace disponible */
-    background-repeat: no-repeat; 
-    background-position: center;
-    cursor: pointer; /* Le curseur a la même forme que sur un lien */
-}
 
-/* Page index */
+
+/* FRONT PAGE  */
 /* home photos */
 .gallery {
     display: grid;
     grid-template-columns: 1fr;    
 }
+
 
 /* Filtres */ 
 .filters{
@@ -641,5 +591,9 @@ body{
     object-fit: cover;
 }
 
+/** MOBIL MENU */
+.mobil-close{
+    display: none;
+}
 
 

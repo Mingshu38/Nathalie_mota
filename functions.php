@@ -5,6 +5,7 @@ function nathalie_mota_theme_enqueue(){
     wp_enqueue_style('nathalie-mota', get_stylesheet_uri());
     wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/style.css');
     wp_enqueue_style('responsive-style', get_template_directory_uri() . '/assets/css/responsive.css');
+    wp_enqueue_style('fonts-style', get_template_directory_uri() . '/assets/css/font-face.css');
     wp_enqueue_style('lightbox-style', get_template_directory_uri() . '/assets/css/lightbox.css');
     wp_enqueue_script('script' , get_template_directory_uri() . '/assets/js/script.js', array('jquery'), null, true );
     wp_localize_script('script', 'data', ['ajax_url' => admin_url( 'admin-ajax.php' )]);

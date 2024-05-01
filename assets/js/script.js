@@ -214,3 +214,5 @@ lightboxClose.addEventListener('click',()=>{
 });
 
 initLightboxEvent()
+
+/** BURGER MENU  */

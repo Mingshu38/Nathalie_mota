@@ -1,11 +1,26 @@
 /** RESPONSIVE **/
 @media screen and (min-width: 768px){
-
+    html{
+        max-width: 1440px;
+    }
     .container {
         padding: 0 146px;
     }
     
+    .header-menu{
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+    }
+    #nav-menu{
+        display: flex;
+    }
     
+    .logo-img{
+        width: 216px;
+        height: auto;
+    }
+
     .hero-header img{
         width: 100%;
         height: 966px;
@@ -56,6 +71,7 @@
     .footer{
         display:flex;
         flex-direction: row;
+        justify-content: center;
         width: 100%;
         height: 40px;
         bottom: 0;
@@ -103,6 +119,9 @@
     .arrow:hover{
         transform: scale(1.3);
     }
-    
+
+    .mobil-close{
+        display: none;
+    }
 
 }
