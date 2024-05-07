@@ -27,7 +27,7 @@ function load_photos(){
     $format = [];
     $taxQuery = [];   
     $page = (isset($_GET['page']) && $_GET['page'] !== 'null') ? $_GET['page'] : 1; 
-    $sort = (isset($_GET['sort']) && $_GET['sort'] !== 'null') ? $_GET['sort'] : 'ASC'; 
+    $sort = (isset($_GET['sort']) && $_GET['sort'] !== 'null') ? $_GET['sort'] : 'DESC'; 
     // La fonction isset()vérifie la variable catégorie dans l'URL , si la variable existe dans l'URL $_GET prend la valeur de la variable 
     if(isset($_GET['category']) && $_GET['category'] !== 'null' && $_GET['category'] !== 'ALL'){
         $category = array(
@@ -52,7 +52,7 @@ function load_photos(){
         'post_type' => 'photo',
         'posts_per_page' => 8,
         'order' => $sort, // par ordre aléatoire 
-        'paged' => $page,
+        "paged" => intval($page),
         'tax_query' => $taxQuery,
     ]);
     if($query  -> have_posts()){
@@ -66,35 +66,12 @@ function load_photos(){
 add_action( 'wp_ajax_load_photos', 'load_photos' );
 add_action( 'wp_ajax_nopriv_load_photos', 'load_photos' );
 
-/* Bouton Load More */
-
-function btn_load_more(){
-    $page = (isset($_GET['page']) && $_GET['page'] !== 'null') ? $_GET['page'] : 1;
-    $query = new WP_Query([
-        'post_type' =>'photo',
-        'post_per_page' => 8,
-        'orderby' =>'rand',
-        'order' =>'ASC',
-        'paged' => $page,
-    ]);
-    if($query  -> have_posts()){
-        while ($query  -> have_posts()) {
-            $query -> the_post();            
-            echo get_template_part('/templates_part/photo-single');
-        }
-    }
-};
-
 function load_lightbox(){
     $ids = $_GET['ids'] ? explode(',', $_GET['ids']) : [];
     foreach($ids as $id){
         echo get_template_part('/templates_part/lightbox-single', null, ['id' => $id]);
     }
 };
-
-
-add_action('wp_ajax_btn_load_more' , 'btn_load_more');
-add_action('wp_ajax_nopriv_btn_load_more' , 'btn_load_more');
 
 add_action('wp_ajax_load_lightbox' , 'load_lightbox');
 add_action('wp_ajax_nopriv_load_lightbox' , 'load_lightbox');

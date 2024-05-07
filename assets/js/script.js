@@ -196,10 +196,10 @@ lightboxPrevious.addEventListener('click', () => {
 
 
 function initLightboxEvent(){
-    const lightboxFullScreen = document.querySelectorAll('.photo-single');
+    const lightboxFullScreen = document.querySelectorAll('.icon-fullscreen');
     lightboxFullScreen.forEach((e, idx) => {
         e.addEventListener('click', ()=>{               
-            const photos = Array.from(document.querySelectorAll('.photo-single'))
+            const photos = Array.from(document.querySelectorAll('.icon-fullscreen'))
             const ids = photos.map(p => p.dataset['id'])
             openLightbox(ids);
             // Initialise l'index de la slide cliquée pour se rendre au bon endroit dans la lightbox

@@ -44,6 +44,7 @@ html{
 }
 
 body{
+    max-width: 1440px;
     background: #FFF;
     color: #23282d;
     font-family: 'Space Mono' , monospace;
@@ -436,22 +437,22 @@ body{
     top: 11px;
     right: 18px;
     cursor: pointer;
-    z-index: 31;
 }
 .icon-eye{
     opacity: 1;
     position: absolute;
     top:50%;
-    right: 263px;
-    background-color: transparent
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
 }
 .hover-photo{
     opacity: 0;
     position: absolute;
     top:0;
     left: 0;
-    /*width: 564px;
-    height: 495px;*/
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0 , 0.6);
     transition: opacity 0.2s ease-in-out;
 }
@@ -461,7 +462,6 @@ body{
 .hover-photo h3{
     color: white;
     position: absolute;
-    top: 80%;
     bottom: 12px;
 }
 .hover-photo-cat{
@@ -517,7 +517,8 @@ body{
 /* home photos */
 .gallery {
     display: grid;
-    grid-template-columns: 1fr;    
+    grid-template-columns: 1fr;   
+    gap: 16px; 
 }
 
 
@@ -585,11 +586,19 @@ body{
     color: #FFF;
 }
 
+.photo-single {
+    position: relative;
+    height: 495px;
+}
+
 .photo-single .photo{
     width: 100%;
-    height: 495px;
+    height: 100%;
     object-fit: cover;
-    padding-bottom: 21px;
+}
+
+.photo-single:hover .hover-photo {
+    opacity: 1;
 }
 
 /** MOBIL MENU */

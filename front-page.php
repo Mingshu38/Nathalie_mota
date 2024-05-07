@@ -59,7 +59,6 @@
             $args_home_posts = array(
                 'post_type' => 'photo',  // Type de publication 
                 'posts_per_page' => 8, // Nombre de publications affichées par page
-                'order_by' => 'date', // Tri par date des publications 
                 'order'=> 'DESC', // Tri de la plus récente à la plus ancienne 
             );
             $custom_home_query = new WP_Query($args_home_posts);
