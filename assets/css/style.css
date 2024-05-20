@@ -97,7 +97,21 @@ body{
     margin-right: 45px;
     text-decoration: none !important;
 }
-
+a:-webkit-any-link{
+    color: #000;
+    font-family: 'Space-Mono' , monospace;
+    font-size: 16px;
+    font-style: normal;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-right: 45px;
+    text-decoration: none !important;
+}
+a:-webkit-any-link:hover{
+    color: #000;
+    font-weight: 700;
+    transition-duration: O.3s;
+}
 .menu-component:hover{
     font-weight: 700;
     transition-duration: 0.3s;
@@ -108,16 +122,16 @@ body{
 
 .menu-footer{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
 .footer-menu{
     display: flex;
-    flex-direction: column;
-    margin-top: 90px;
+    text-decoration: none;
+    list-style-type: none;
     gap: 10px;
 }
+
 
 /* MODAL CONTACT */
 
@@ -247,12 +261,15 @@ body{
 }
 
 /* PAGE SINGLE PHOTOS */
+
 .single-page{
     width: 100%;
     height: auto;
+    flex-direction: column;
     align-items: center;
     margin-bottom: 109px;
 }
+
 .single{
     width: 100%;
     display: flex;
@@ -262,8 +279,8 @@ body{
     align-items: center;
     padding-top: 80px;
 }
+
 .detail{
-    float: left;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -277,14 +294,17 @@ body{
 }
 .details-photos{
     flex-direction: row;
-    margin-left: -140px;
-    bottom: 50%;
+    position: relative;
+    margin-left: -146px;
+    margin-right: 146px;
 }
+
 .detail h2 p {
     display: inline;
-    position: absolute;
+    position: relative;
     height: 100%;
     bottom: 0px;
+    left: 0;
 }
 .picture{
     position: relative;
@@ -588,6 +608,7 @@ body{
 
 .photo-single {
     position: relative;
+    flex-direction: column;
     height: 495px;
 }
 
