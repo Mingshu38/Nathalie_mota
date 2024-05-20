@@ -61,12 +61,12 @@ get_header() ?>
 
 			<?php if($previousPost): ?>				
 				<a href="<?= get_permalink($previousPost -> ID); ?>" class="previous-thumbnail-link" data-image="<?= get_the_post_thumbnail_url($previousPost->ID, 'thumbnail'); ?>">
-					<img class="arrow" src="<?= get_template_directory_uri() .'/assets/img/arrow-left.png';?>" alt="image flèche précédente">
+					<img class="arrow" src="<?= get_template_directory_uri() .'/assets/img/left-arrow.png';?>" alt="image flèche précédente">
 				</a>
 			<?php endif; ?>
 			<?php if($nextPost): ?>
 				<a href="<?= get_permalink($nextPost ->ID)?>" class="next-thumbnail-link"  data-image="<?= get_the_post_thumbnail_url($nextPost->ID, 'thumbnail'); ?>">
-					<img class="arrow" src="<?php echo get_template_directory_uri() .'/assets/img/arrow-right.png';?>" alt="image flèche suivante">
+					<img class="arrow" src="<?php echo get_template_directory_uri() .'/assets/img/right-arrow.png';?>" alt="image flèche suivante">
 				</a>
 			
 			<?php endif; ?>
