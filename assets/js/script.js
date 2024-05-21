@@ -109,33 +109,43 @@ const changeData = () => {
     })
 }
 
-selectCategory.addEventListener('change', (e) =>{
-    // Récupère la valeur de l'élement
-    currentPage = 1;
-    category = e.target.value
-    changeData()
-})
+if(selectCategory){
+    selectCategory.addEventListener('change', (e) =>{
+        // Récupère la valeur de l'élement
+        currentPage = 1;
+        category = e.target.value
+        changeData()
+    })
+}
 
-selectFormat.addEventListener('change', (e) =>{
-    currentPage = 1;
-    format = e.target.value;
-    changeData()
-})
-selectSort.addEventListener('change', (e) =>{
-    currentPage = 1;
-    sort = e.target.value
-    changeData()
-})
+if(selectFormat){
+    selectFormat.addEventListener('change', (e) =>{
+        currentPage = 1;
+        format = e.target.value;
+        changeData()
+    })
+}
 
-loadMoreButton.addEventListener('click', (e) => {
-    currentPage += 1;
-    fetchData(category , format , sort, currentPage)
-        .then((html) => {
-            const photos = html.querySelectorAll('.photo-single') // délection de la classe des photos 
-                    photos.forEach(photo =>gallery.appendChild(photo))
-                    console.log(data)
-        })
-})
+if(selectSort){
+    selectSort.addEventListener('change', (e) =>{
+        currentPage = 1;
+        sort = e.target.value
+        changeData()
+    })
+}
+
+
+if(loadMoreButton){
+    loadMoreButton.addEventListener('click', (e) => {
+        currentPage += 1;
+        fetchData(category , format , sort, currentPage)
+            .then((html) => {
+                const photos = html.querySelectorAll('.photo-single') // délection de la classe des photos 
+                        photos.forEach(photo =>gallery.appendChild(photo))
+                        console.log(data)
+            })
+    })
+}
 
 /** Lightbox Script  */
 

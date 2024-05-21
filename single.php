@@ -24,7 +24,7 @@ get_header() ?>
 
 ?>
 <div class="single-page">
-	<div class="single">
+	<div class="single-detail container">
 		<div class="detail">
 			<div class="details-photos">
 				<h2><?php echo the_title() ?></h2>
@@ -35,12 +35,15 @@ get_header() ?>
 				<p class="detail-photo">Année : <span><?php echo $datePhoto ?></span></p>
 			</div>
 		</div>
-		<div class="single-photo">
+		<div class="single-photo-container">
 			<img class="picture" src="<?php echo get_the_post_thumbnail_url(); ?>"alt="photo" >
 		</div>
 	
 	</div>
+
+
 	<div class="contact-single">
+		<div class="container">
 		<div class="contact-button">
 			<p>Cette photo vous intéresse ?</p>
 			<button class="button-single btn-contact" data-reference="<?= $refPhoto ?>">Contact</button>
@@ -73,9 +76,12 @@ get_header() ?>
 				
 			</div>			
 		</div>
+			</div>
 	</div>
+
 	<!-- Section Photos apparentées -->
 	<div class="related-photos">
+		<div class="container">
 		<h3>Vous aimerez aussi</h3>
 		<div class="photo-container">
 			<?php 
@@ -113,8 +119,10 @@ get_header() ?>
 			
 			?>
 		</div>
-
+		</div>
 	</div>
+
+	
 </div>
 
 <?php get_footer()?>

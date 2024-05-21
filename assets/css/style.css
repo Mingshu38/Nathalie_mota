@@ -62,15 +62,23 @@ body{
     z-index: 10;
 }
 
-
-/* STYLE DE L'ENTÊTE  */
-.header .container{
+.header {
     position: fixed;
     display: flex;
     width: 100%;
     height: 80px;
     background-color: #fff;
     z-index: 10;
+    align-items: center;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+}
+
+
+/* STYLE DE L'ENTÊTE  */
+.header .container{
+    display: flex;    
     align-items: center;
     justify-content: space-between;
 }
@@ -104,7 +112,6 @@ a:-webkit-any-link{
     font-style: normal;
     line-height: normal;
     text-transform: uppercase;
-    margin-right: 45px;
     text-decoration: none !important;
 }
 a:-webkit-any-link:hover{
@@ -120,16 +127,33 @@ a:-webkit-any-link:hover{
 
 /* FOOTER */
 
+footer {
+    width: 100%;
+    border-top: 1px solid black;
+}
+
 .menu-footer{
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .footer-menu{
     display: flex;
+    flex-wrap: wrap;
     text-decoration: none;
     list-style-type: none;
     gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.menu-footer li, .menu-footer p {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 12px 0;
 }
 
 
@@ -170,7 +194,6 @@ a:-webkit-any-link:hover{
 }
 .modal-btn{
     background-color: #FFF;
-    margin-top: -3px;
     border: none;
     color: #000;
     font-family: 'Space-Mono' , monospace;
@@ -263,105 +286,54 @@ a:-webkit-any-link:hover{
 /* PAGE SINGLE PHOTOS */
 
 .single-page{
-    width: 100%;
     height: auto;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 109px;
+    margin-top: 80px;
 }
 
-.single{
-    width: 100%;
+.single-detail {
     display: flex;
-    position: relative;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding-top: 80px;
+    flex-wrap: wrap;
 }
 
-.detail{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-top: auto;
-    margin-right: 20px;
-    margin-left: 146px;
-    width: 49%;
-    height: 100%;
-    border-bottom: 2px solid #000;
-    bottom: 0;
-}
-.details-photos{
-    flex-direction: row;
-    position: relative;
-    margin-left: -146px;
-    margin-right: 146px;
+.detail-photo{
+    text-transform: uppercase;
 }
 
-.detail h2 p {
-    display: inline;
-    position: relative;
-    height: 100%;
-    bottom: 0px;
-    left: 0;
+.detail h2 {
+    width: 50%;
+    margin: 20px 0;
 }
+
 .picture{
-    position: relative;
     object-fit: cover;
     width: 100%;
-    height: auto;
 }
-.single-photo{
-    display: inline;
-    width: 49%;
-    margin-right: 146px;
-    height: auto;
+.single-photo-container{
+    order: -1;
 }
-.detail-photo{
-    display: flex;
-    font-family: 'Space Mono' , monospace;
-    text-transform: uppercase;
-    padding-left: 146px;
-    padding-right: 21px;
-    bottom: 0px;
-}
-.detail h2{
-    padding-left: 144px;
-}
+
+
 .contact-single{
     justify-content: space-between;
     align-items: center;
-    flex-direction: row;
-    position: relative;
     width: auto;
-    margin-left: 146px;
-    margin-right: 136px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 24px 0;
 }
-.contact-button{
-    display: inline;
-    display: flex;
-    width: 50%;
-    margin-top: 48px;
-    margin-bottom: 49px;
-}
-.contact-button p{
-    float: left;
-    width: 50%;  
+.contact-button p{    
     font-family: 'Poppins , sans serif';
     font-size: 14px;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
-}
-.contact-button button{
-    width: 270px;
-    height: 50px;
+    margin: 0 0 15px 0;
 }
 .button-single{
-    width:272px;
-    height: 50px;
-    padding: 8px 15px;
+    width:100%;
+    padding: 15px 8px;
     border-radius: 2px;
     font-family: 'Space Mono', monospace;
     font-size: 12px;
@@ -381,19 +353,9 @@ a:-webkit-any-link:hover{
 
 /* Flèches et miniature */
 .mini-slider{
-    display: flex;
-    float: right;
-    width: 49%;
-    height: auto;
-    margin-right: 50px;
+    display: none;
 }
-.arrows{
-    display: inline;
-    margin-left: 500px;
-    margin-top: -140px;
-    align-items: flex-end;
-    vertical-align: middle;
-}
+
 .arrow{
     color: #000;
     width: 25px;
@@ -428,23 +390,19 @@ a:-webkit-any-link:hover{
 
 /* Section Related Photos */
 .related-photos{
-    display: flex;
-    flex-direction: column;
-    max-width: 1440px;
-    margin-left: 145px;
-    margin-right: 145px;
-    border-top: 2px solid #000;
 }
 .container-photo{
     width: 100%;
-    position: relative;
+    margin-bottom: 20px;
 }
 .related-photos h3{
-    margin-top: 77px;
+    margin-top: 24px;
+    text-align: center;
 }
 .photo-container{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     width: 100%;
     height: auto;
     margin-top: 52px;
@@ -609,7 +567,8 @@ a:-webkit-any-link:hover{
 .photo-single {
     position: relative;
     flex-direction: column;
-    height: 495px;
+    height: 279px;
+    object-fit: cover;
 }
 
 .photo-single .photo{
@@ -626,5 +585,7 @@ a:-webkit-any-link:hover{
 .mobil-close{
     display: none;
 }
+
+
 
 

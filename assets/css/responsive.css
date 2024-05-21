@@ -15,20 +15,22 @@
     }
     .container {
         max-width: 1440px;
-        padding: 0 146px;
+        width: 80%;    
     }
 
     .header .container{
         position: fixed;
         display: flex;
         width: 100%;
+        max-width: 1440px;
         height: 80px;
         background-color: #fff;
         z-index: 10;
         align-items: center;
         justify-content: space-between;
     }
-
+    
+    
     .header-menu{
         display: flex;
         flex-direction: row;
@@ -36,6 +38,7 @@
     }
     #nav-menu{
         display: flex;
+        
     }
     
     .logo-img{
@@ -47,6 +50,7 @@
         width: 100%;
         height: 966px;
         overflow: hidden;
+        object-fit: cover;
     }
     .hero-header h1{
         font-size: 96px;
@@ -103,6 +107,7 @@
     .lightbox-arrow img:hover{
         width: 101px;
     }
+    
     /* GALLERIE */
     .gallery {
         grid-template-columns: 1fr 1fr;
@@ -125,7 +130,21 @@
     }
     .footer-menu {
         text-decoration: none;
-        list-style-type: none;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .menu-footer {
+        flex-wrap: nowrap;
+        width: 80%;
+    }
+
+    .menu-footer ul {
+        width: 66%;
+    }
+
+    .menu-footer p {
+        width: 33%;
     }
     
     
@@ -137,7 +156,6 @@
         font-weight: 400;
         line-height: normal;
         text-transform: uppercase;
-        margin-right: 86px;
         text-decoration: none;
     }
     nav p{
@@ -166,31 +184,58 @@
         display: none;
     }
 
-    /* SINGLE PAGE */
+    
     
 
 
 }
-@media (max-width: 767px){
-    .single-page{
+@media (min-width: 768px){
+    .single-detail {
+        flex-wrap: nowrap;
+    }
+
+    .single-photo-container {
+        order: 1;
+    }
+    
+    .detail {
         display: flex;
-        flex-direction: column;
-        max-width: 767px;
-        justify-content: center;
+        margin-top: auto;
+        margin-bottom: 0;
+        padding-right: 167px;
+    }
+
+    .contact-button {
+        display: flex;
         align-items: center;
-        padding-top:0;
     }
-    .single{
+
+    .button-single {
+        width: 272px;
+    }
+
+    .contact-button p {
+        margin: 0 96px 0 0;
+    }
+
+    .mini-slider {
+        display: block;
+        
+    }
+
+    .contact-single .container {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
     }
-    .detail{
-        padding: 0%;
+    .related-photos h3 {
+        text-align: left;
     }
-    .detail-photo{
-        width: 100%;
+
+    .photo-container {
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 109px;
     }
-    .single-photo{
-        width: 100%;
+    .photo-single{
+        height: 495px;
     }
 }
