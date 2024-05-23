@@ -44,6 +44,7 @@ if(btnContactSingle){
         openModal(reference)
     })
 }
+/** Mini Slider affichage de la photo au survol de la souris  */
 // Condition "if" création de l'évenement au survol  de la flèche gauche avec  la souris pour apparition de l'image précédente , sinon il reste vide 
 if(previousThumbLink){
     previousThumbLink.addEventListener('mouseenter', () => {
@@ -134,7 +135,7 @@ if(selectSort){
     })
 }
 
-
+/** Bouton charger plus  */
 if(loadMoreButton){
     loadMoreButton.addEventListener('click', (e) => {
         currentPage += 1;
@@ -226,3 +227,14 @@ lightboxClose.addEventListener('click',()=>{
 initLightboxEvent()
 
 /** BURGER MENU  */
+//* Navigation menu burger mobile
+
+const menuBurger = document.querySelector('.menu-burger');
+const nav = document.querySelector('.navigation');
+const liens = document.querySelectorAll('.navigation--menu li a')
+
+menuBurger.addEventListener('click', () => {
+    menuBurger.classList.toggle('open');
+    nav.classList.toggle('open');
+
+});

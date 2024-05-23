@@ -28,6 +28,7 @@
         z-index: 10;
         align-items: center;
         justify-content: space-between;
+        box-shadow: 0px 4px 14px 10px rgba(0, 0, 0, 0.03);
     }
     
     
@@ -38,7 +39,12 @@
     }
     #nav-menu{
         display: flex;
-        
+        gap: 30px;
+        padding-right: 146px;
+    }
+    
+    .logo{
+        padding-left: 146px;
     }
     
     .logo-img{
@@ -64,7 +70,7 @@
     }
 
     .filters .filter{
-        width: 33%;
+        width: 45%;
     }
 
     .filters .sort {
@@ -78,7 +84,7 @@
         border-radius: 8px;
         border: 1.3px solid var(--Blues-Gray2, #B8BBC2);
         background: var(--White, #FFF);
-        padding: 11px 18px 11px 18px;
+        padding: 11px 18px;
         color: var(--Black, #313144);
         font-family: 'Poppins', sans-serif;
         font-size: 12px;
@@ -237,5 +243,12 @@
     }
     .photo-single{
         height: 495px;
+    }
+    /**  Burger Menu  */
+    .menu-burger{
+        display: none;
+    }
+    .modal-container{
+        width: 39%;
     }
 }

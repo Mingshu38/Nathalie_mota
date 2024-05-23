@@ -22,6 +22,7 @@ function register_my_menu(){
  add_action('after_setup_theme', 'register_my_menu');
 
 /** Requêtes AJAX */
+/** Pagination infinie des photos  */
 function load_photos(){
     $category = [];
     $format = [];
@@ -49,12 +50,14 @@ function load_photos(){
     }
     
     $query = new WP_Query([
-        'post_type' => 'photo',
-        'posts_per_page' => 8,
+        'post_type' => 'photo', // Sélectionne le type de post
+        'posts_per_page' => 8, // Nombre de post à afficher par page
         'order' => $sort, // par ordre aléatoire 
         "paged" => intval($page),
         'tax_query' => $taxQuery,
     ]);
+
+    // Verifie si il y a des publications disponibles 
     if($query  -> have_posts()){
         while ($query  -> have_posts()) {
             $query -> the_post();            
