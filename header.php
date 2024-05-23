@@ -23,7 +23,7 @@
                 </div>
 
                 <!-- Menu Desktop --> 
-                <nav id="nav-menu">
+                <nav id="nav-menu" class="nav-menu">
                     <?php 
                     // Affichage du menu main déclaré dans functions.php
                         wp_nav_menu(array(

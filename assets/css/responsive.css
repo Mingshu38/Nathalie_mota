@@ -244,11 +244,15 @@
     .photo-single{
         height: 495px;
     }
+    .modal-container{
+        width: 39%;
+    }
+    /*.modal-btn{
+        background-color: white;
+        color: #000;
+    }*/
     /**  Burger Menu  */
     .menu-burger{
         display: none;
-    }
-    .modal-container{
-        width: 39%;
     }
 }

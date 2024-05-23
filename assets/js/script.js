@@ -230,8 +230,7 @@ initLightboxEvent()
 //* Navigation menu burger mobile
 
 const menuBurger = document.querySelector('.menu-burger');
-const nav = document.querySelector('.navigation');
-const liens = document.querySelectorAll('.navigation--menu li a')
+const nav = document.querySelector('.nav-menu');
 
 menuBurger.addEventListener('click', () => {
     menuBurger.classList.toggle('open');
