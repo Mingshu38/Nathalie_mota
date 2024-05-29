@@ -19,6 +19,12 @@
     }
 
     .header .container{
+        width: 80%;
+    }
+
+
+
+    /*.header .container{
         position: fixed;
         display: flex;
         width: 100%;
@@ -27,24 +33,14 @@
         background-color: #fff;
         z-index: 10;
         align-items: center;
-        justify-content: space-between;
-        box-shadow: 0px 4px 14px 10px rgba(0, 0, 0, 0.03);
-    }
+        justify-content: space-between;        
+    }*/
     
     
     .header-menu{
         display: flex;
         flex-direction: row;
         list-style-type: none;
-    }
-    #nav-menu{
-        display: flex;
-        gap: 30px;
-        padding-right: 146px;
-    }
-    
-    .logo{
-        padding-left: 146px;
     }
     
     .logo-img{
@@ -61,12 +57,14 @@
     .hero-header h1{
         font-size: 96px;
         align-items: center;
+        -webkit-text-stroke: 3px white;
         /* voir pour mettre en auto et pas en px titre */
     }
     /* FILTRES */
     .filters {
         flex-wrap: nowrap;
         justify-content: space-between;
+        width: 100%;
     }
 
     .filters .filter{
@@ -151,6 +149,14 @@
 
     .menu-footer p {
         width: 33%;
+    }
+
+    .menu-mobile {
+        display: none;
+    }
+
+    .menu-desktop {
+        display: flex;
     }
     
     
@@ -254,5 +260,9 @@
     /**  Burger Menu  */
     .menu-burger{
         display: none;
+    }
+
+    .nav-menu {
+        display: flex;
     }
 }

@@ -1,7 +1,7 @@
 /* Script de la modale de contact , avec ajout de la référence photo pour la page single */
 
 // Variables Modale Contact 
-const modalBtn = document.querySelector('.modal-btn');
+const modalBtn = document.querySelectorAll('.modal-btn');
 const modal = document.querySelector('.modal');
 const modalOverlay = document.querySelector('.modal-overlay');
 const btnContactSingle = document.querySelector('.btn-contact');
@@ -30,9 +30,9 @@ const hideThumbnail = () => {
     thumbnail.style.background = ''
 }
 // On crée un évenement au clic pour l'ouverture de la modale 
-modalBtn.addEventListener('click', () => {    
+modalBtn.forEach(e => e.addEventListener('click', () => {    
     openModal()
-});
+}));
 // On crée un évenement pour la fermeture de la modale 
 modalOverlay.addEventListener('click', () => {
     closeModal()
@@ -230,7 +230,7 @@ initLightboxEvent()
 //* Navigation menu burger mobile
 
 const menuBurger = document.querySelector('.menu-burger');
-const nav = document.querySelector('.nav-menu');
+const nav = document.querySelector('.nav-menu-mobile');
 
 menuBurger.addEventListener('click', () => {
     menuBurger.classList.toggle('open');

@@ -13,29 +13,48 @@
         <header id="header" class="header">
             <div class="container">
                 <div class="logo">
-                    <a href="http://nathaliemota.local"><img class="logo-img" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-2.png" alt="Logo"></a>           
+                    <a href="http://localhost:10030"><img class="logo-img" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-2.png" alt="Logo"></a>           
                 </div>
                 <!-- Menu burger Mobile --> 
-                <div class="menu-burger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
+                <div class="menu-mobile">
+                    <div class="menu-burger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                    <nav class="nav-menu-mobile">
+                        <div class="nav-menu-content">
+                            <?php 
+                            // Affichage du menu main déclaré dans functions.php
+                                wp_nav_menu(array(
+                                    'theme_location' => 'main',
+                                    'container' =>'ul',  // Pour éviter d'avoir une div autour
+                                    'menu_class' =>'header-menu'
+                                ));
+                            ?> 
+                            <button class="modal-btn">contact</button>
+                        </div>                        
+                    </nav>
+                </div>                
 
-                <!-- Menu Desktop --> 
-                <nav id="nav-menu" class="nav-menu">
-                    <?php 
-                    // Affichage du menu main déclaré dans functions.php
-                        wp_nav_menu(array(
-                            'theme_location' => 'main',
-                            'container' =>'ul',  // Pour éviter d'avoir une div autour
-                            'menu_class' =>'header-menu'
-                        ));
-                    ?> 
-                    <button class="modal-btn">contact</button>
-                </nav>
+                <div class="menu-desktop">
+                    <!-- Menu Desktop --> 
+                    <nav id="nav-menu" class="nav-menu">
+                        <?php 
+                        // Affichage du menu main déclaré dans functions.php
+                            wp_nav_menu(array(
+                                'theme_location' => 'main',
+                                'container' =>'ul',  // Pour éviter d'avoir une div autour
+                                'menu_class' =>'header-menu'
+                            ));
+                        ?> 
+                        <button class="modal-btn">contact</button>
+                    </nav>
+                </div>
             </div>
          
         </header>
+        
+
         
 
