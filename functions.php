@@ -22,6 +22,7 @@ function register_my_menu(){
  add_action('after_setup_theme', 'register_my_menu');
 
 /** Requêtes AJAX */
+/** Une requête AJAX permet au navigateur de lancer 1 requête au serveur en temps réel sans recharger la page  */
 /** Pagination infinie des photos  */
 function load_photos(){
     $category = [];

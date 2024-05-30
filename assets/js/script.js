@@ -74,7 +74,9 @@ let category =null;
 let format=null;
 let sort=null;
 let currentPage = 1 ;
-
+/** fetch = récuperer 
+ * Sert a récuperer 1 ressource pour accéder ou manipuler certaines parties 
+ */
 const fetchData =(category , format , sort, page = 1 )=>{ // Récupère : catégorie , format et date 
     // La méthode fetch fait par défaut une requête GET , nous lui indiquons de faire une requête "action"
     return fetch(`${data.ajax_url}?action=load_photos&category=${category}&format=${format}&sort=${sort}&page=${page}`)
@@ -92,7 +94,7 @@ const fetchLightboxContent = (ids) => {
     const params = new URLSearchParams({ids})
     return fetch(`${data.ajax_url}?action=load_lightbox&${params.toString()}`)
     // la méthode "fetch" retourne une promesse , si le promesse renvoyée est "resolve" la fonction dans la méthode then est bien renvoyée 
-        .then((response => response.text()))
+        .then((response => response.text())) // quand 
         .then ((data) => {
     // DOMParser permet d'analyser le code source HTML dans le DOM document
             const parser = new DOMParser();

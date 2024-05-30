@@ -3,7 +3,6 @@ $argsHero = array(
     'post_type' => 'photo',
     'posts_per_page' => 1,
     'orderby' =>'rand',
-    'post__in' => [128]
 );
 
 $myQuery = new WP_Query($argsHero);
